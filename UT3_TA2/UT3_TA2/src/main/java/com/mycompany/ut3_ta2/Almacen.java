@@ -28,7 +28,7 @@ public class Almacen {
     }
    public Producto buscarProductoPorCodigo(String codigo){
         if (listaProductos != null){
-            TNodo nodoActual = listaProductos.primerNodo;
+            TNodo nodoActual = listaProductos.getPrimero();
             while (nodoActual != null){
                 Producto producto = (Producto) nodoActual.getDato(); //Interesa el tipo Producto dentro de Objet
                 if (producto.codigo == codigo){ 
