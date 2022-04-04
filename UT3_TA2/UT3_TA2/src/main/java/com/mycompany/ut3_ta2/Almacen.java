@@ -10,10 +10,10 @@ public class Almacen {
    
     public void agregarProducto(Producto producto){
        if (this.listaProductos != null){
-           listaProductos.insertar(producto);
+           listaProductos.insertar(producto.getCodigo(), producto);
        } else {
            TLista listaProductos = new TLista();
-           listaProductos.insertar(producto);
+           listaProductos.insertar(producto.getCodigo(), producto);
        }
    
    }
