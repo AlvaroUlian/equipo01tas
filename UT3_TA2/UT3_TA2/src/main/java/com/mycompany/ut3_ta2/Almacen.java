@@ -1,7 +1,7 @@
-package com.mycompany.ut3_ta1;
+package com.mycompany.ut3_ta2;
 
 public class Almacen {
-   private TLista listaProductos;
+   public TLista listaProductos;
    private String nombreAlmacen;
      
     public Almacen (TLista productos, String nombreAlmacen){

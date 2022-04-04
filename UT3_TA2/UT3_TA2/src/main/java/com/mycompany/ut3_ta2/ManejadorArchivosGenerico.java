@@ -1,4 +1,4 @@
-package ut3.ta2;
+package com.mycompany.ut3_ta2;
 
 
 import java.io.BufferedReader;
