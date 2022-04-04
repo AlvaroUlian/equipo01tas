@@ -26,6 +26,7 @@ public class Almacen {
             }
        }
     }
+    
    public Producto buscarProductoPorCodigo(String codigo){
         if (listaProductos != null){
             TNodo nodoActual = listaProductos.getPrimero();

@@ -12,6 +12,18 @@ package com.mycompany.ut3_ta2;
 public class UT3_TA2 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
+        //Almacen almacen01 = new Almacen();
+        ManejadorArchivosGenerico manejador = new ManejadorArchivosGenerico();
+        
+        String[] listaProductos = manejador.leerArchivo("altasPrueba.txt");
+        System.out.println(listaProductos[0]);
+        
+        
+        //for (int i = 0; i < listaProductos.length; i++) {
+            //System.out.println(listaProductos[i]);
+            //Producto producto = new Producto(listaProductos[i]);
+        //}
+        
     }
 }
