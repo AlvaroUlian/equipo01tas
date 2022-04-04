@@ -33,4 +33,8 @@ public class Producto {
         
       this.precio = precio;
     }
+    
+    public String getCodigo(){
+        return this.codigo;
+    }
 }
