@@ -1,6 +1,6 @@
 package com.mycompany.ut3_ta2;
 
-public class Almacen {
+public class Almacen{
    public TLista listaProductos;
    private String nombreAlmacen;
      
@@ -8,7 +8,7 @@ public class Almacen {
         this.nombreAlmacen = nombreAlmacen;
    }
    
-    public void agregarProducto(Producto producto){
+    public int agregar(Producto producto){
        if (this.listaProductos != null){
            listaProductos.insertar(producto.getCodigo(), producto);
        } else {
