@@ -3,23 +3,34 @@ package com.mycompany.ut3_ta2;
 public class Almacen{
    public TLista listaProductos;
    private String nombreAlmacen;
-   private int valorTotalStock;
+   int valorTotalStock = 0;
      
     public Almacen (TLista productos, String nombreAlmacen){
         this.nombreAlmacen = nombreAlmacen;
         this.listaProductos = productos;
    }
+    
+   public void listarProductos(){
+        TNodo actual = listaProductos.primero;
+        if (this.listaProductos != null && actual != null){  //Si lista no esta vacia y si no llego al final 
+            Producto producto = (Producto)actual.dato;
+            System.out.println(producto.nombre);
+            actual = actual.siguiente;
+        }
+        
+    }
    
     public int agregarProducto(Producto producto){
        if (this.listaProductos != null){
-           listaProductos.insertar(producto.getCodigo(), producto);
+           listaProductos.insertarDelante(producto.getCodigo(), producto);
        } else {
-           listaProductos.insertar(producto.getCodigo(), producto);
+           listaProductos.insertarDelante(producto.getCodigo(), producto);
        }
        return 0;
    }
     public void agregarStock(int aumentar,String codigo){
         if (this.listaProductos != null){
+            System.out.println("anterior al error");
             Producto prod = this.buscarProductoPorCodigo(codigo);
             prod.setStock(aumentar);
             if (prod == null){

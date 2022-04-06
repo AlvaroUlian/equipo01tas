@@ -28,13 +28,19 @@ public class UT3_TA2 {
             if (productoActual == null){
                 Producto producto = new Producto(Float.parseFloat(linea[2]), linea[1], linea[0], Integer. parseInt(linea[3]));
                 almacen01.agregarProducto(producto);
+                almacen01.valorTotalStock += producto.precio*producto.stock;
                 System.out.println("Se agregó el producto.");
+                
+                
             }
             else{almacen01.agregarStock(Integer. parseInt(linea[3]), linea[0]);
             System.out.println("Al producto que ya existe se les modificó el stock.");
+            Producto producto = almacen01.buscarProductoPorCodigo(linea[0]);
+            almacen01.valorTotalStock += producto.precio*producto.stock;
             }
         }
-        
+        System.out.println("Valor STOCK actualizaco "+ almacen01.valorTotalStock);
+        System.out.println("-----------------------------------------------------");
         
         //VENTA DE PRODUCTOS
         // Se asume que producto ya está insertado en el almacén
@@ -46,10 +52,12 @@ public class UT3_TA2 {
               int stockViejo = productoActual.stock;
               almacen01.reducirStock(Integer.parseInt(lineaActual[1]), lineaActual[0]);
               int stockActual = productoActual.stock;
-              System.out.println("Stock Anterior: " + stockViejo + " / Stock Actual: " + stockActual);  
+              System.out.println(productoActual.getDatos()+": Stock Anterior: "+ stockViejo + " / Stock Actual: " + stockActual);  
             }
             
         }
-       
+        System.out.println("si pasa por aca el problema es listarProductgos"); 
+        //LISTAR PRODUCTOS
+        almacen01.listarProductos();
     }
 }

@@ -25,7 +25,10 @@ public class Producto {
         
      return this;
     }
-    
+    public String getDatos(){
+        String datosProducto = this.nombre;
+        return datosProducto;
+    }
     public void setStock(int valor){
         this.stock += valor;
     }

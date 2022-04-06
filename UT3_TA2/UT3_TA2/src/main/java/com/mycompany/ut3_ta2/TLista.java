@@ -16,6 +16,16 @@ public class TLista {
     
     public boolean esVacia(){return primero == null;}
     
+    public void insertarDelante(Comparable etiqueta,Object objeto){
+        
+        TNodo nuevoNodo = new TNodo(etiqueta, objeto);
+        if (this.primero!= null){
+            nuevoNodo.siguiente = primero;
+            primero = nuevoNodo;
+        }
+        else{primero = nuevoNodo;}
+        
+    }
     public void insertar(Comparable etiqueta, Object objeto){
         TNodo nodo = new TNodo(etiqueta, objeto);
         
