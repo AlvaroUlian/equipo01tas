@@ -10,11 +10,11 @@ package com.mycompany.ut3_ta2;
 public class TNodo {
     Comparable etiqueta;
     TNodo siguiente;
-    Object nodo;
+    Object dato;
     
     public TNodo (Comparable etiqueta,Object nodo){
         this.etiqueta = etiqueta;
-        this.nodo = nodo;
+        this.dato = nodo;
     }
     
     public TNodo getSiguiente(){
@@ -30,7 +30,7 @@ public class TNodo {
     public Comparable getEtiqueta(){return this.etiqueta;}
     
     public Object getDato(){
-        return nodo;
+        return dato;
     }
     
 }

@@ -15,7 +15,7 @@ public class Almacen{
            TLista listaProductos = new TLista();
            listaProductos.insertar(producto.getCodigo(), producto);
        }
-   
+       return 0;
    }
     public void agregarStock(int aumentar,String codigo){
         if (this.listaProductos != null){
