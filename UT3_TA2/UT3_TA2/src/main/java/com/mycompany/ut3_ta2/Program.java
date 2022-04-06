@@ -11,6 +11,7 @@ package com.mycompany.ut3_ta2;
 public class Program {
     
     public static void main(String[] args) {
+        /*
         Object numero = new Object();
          TNodo nodo1 = new TNodo(1, numero);
          TNodo nodo2 = new TNodo(2, numero);
@@ -23,6 +24,7 @@ public class Program {
          
          TNodo num = lista.getPrimero();
          System.out.println(num.getEtiqueta());
+         */
     }
     
 }

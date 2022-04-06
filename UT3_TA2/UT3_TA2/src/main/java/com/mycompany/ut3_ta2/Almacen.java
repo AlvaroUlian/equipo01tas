@@ -3,16 +3,17 @@ package com.mycompany.ut3_ta2;
 public class Almacen{
    public TLista listaProductos;
    private String nombreAlmacen;
+   private int valorTotalStock;
      
     public Almacen (TLista productos, String nombreAlmacen){
         this.nombreAlmacen = nombreAlmacen;
+        this.listaProductos = productos;
    }
    
-    public int agregar(Producto producto){
+    public int agregarProducto(Producto producto){
        if (this.listaProductos != null){
            listaProductos.insertar(producto.getCodigo(), producto);
        } else {
-           TLista listaProductos = new TLista();
            listaProductos.insertar(producto.getCodigo(), producto);
        }
        return 0;
@@ -32,7 +33,7 @@ public class Almacen{
             TNodo nodoActual = listaProductos.getPrimero();
             while (nodoActual != null){
                 Producto producto = (Producto) nodoActual.getDato(); //Interesa el tipo Producto dentro de Objet
-                if (producto.codigo == codigo){ 
+                if (producto.codigo.equals(codigo)){ 
                     return producto;
                 }
                 nodoActual = nodoActual.getSiguiente();
@@ -45,12 +46,12 @@ public class Almacen{
    public void reducirStock(int reducir,String codigo){
        if (listaProductos != null){
             Producto producto = this.buscarProductoPorCodigo(codigo);
-            producto.setStock((-reducir));
+            producto.setStock((producto.getStock() - reducir));
        }
           
    }
    
-   public void listarProductosOrdenadosPorNombre(){
+    public void listarProductosOrdenadosPorNombre(){
        
        
        

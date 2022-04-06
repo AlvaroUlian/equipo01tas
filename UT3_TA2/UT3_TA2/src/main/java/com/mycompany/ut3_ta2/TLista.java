@@ -10,6 +10,10 @@ package com.mycompany.ut3_ta2;
 public class TLista {
     TNodo primero;
     
+   public TLista(){
+        this.primero = null;
+    }
+    
     public boolean esVacia(){return primero == null;}
     
     public void insertar(Comparable etiqueta, Object objeto){

@@ -29,6 +29,9 @@ public class Producto {
     public void setStock(int valor){
         this.stock += valor;
     }
+    public int getStock(){
+        return this.stock;
+    }
     
     public void setPrecio (float precio){
         
