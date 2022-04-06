@@ -7,21 +7,18 @@ public interface IProducto {
 	 * @return codigo del Producto.
 	 */
 	public int getCodigo();
-	
 	/**
 	 * Retorna la descripcion del Producto.
 	 * 
 	 * @return descripci�n del Producto.
 	 */
 	public String  getDescripcion();
-	
 	/**
 	 * Retorna el precio unitario del Producto.
 	 * 
 	 * @return precio del Producto.
 	 */
 	public int getPrecio();
-	
 	/**
 	 * Retorna el stock  del Producto.
 	 * 
@@ -29,16 +26,12 @@ public interface IProducto {
 	 */
 	public int getStock();
 	public void setStock(int unStock); 
-	
-	
 	public void setSiguiente(IProducto Producto);
-	
 	/**
 	 * Retorna el siguiente Producto al Producto actual.
 	 * @return Siguiente Producto del actual
 	 */
 	public IProducto getSiguiente();
-
 	public void agregarStock(int stock);
 	public int restarStock(int stock);
 	public void imprimir(); // por consola

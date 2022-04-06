@@ -8,7 +8,7 @@ package com.mycompany.ut3_ta2;
  *
  * @author facum
  */
-public class Producto {
+public class Producto implements IProducto {
     float precio;
     String nombre;
     String codigo;

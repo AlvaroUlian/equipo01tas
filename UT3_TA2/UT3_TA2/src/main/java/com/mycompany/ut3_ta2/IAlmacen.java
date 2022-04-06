@@ -2,8 +2,6 @@ package com.mycompany.ut3_ta2;
 
 import java.util.ArrayList;
 
-
-
 public interface IAlmacen {
 	/**
 	 * M�todo encargado de agregar un producto al almac�n.
