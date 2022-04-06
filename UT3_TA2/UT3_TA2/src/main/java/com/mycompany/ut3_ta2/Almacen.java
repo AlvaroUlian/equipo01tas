@@ -38,7 +38,7 @@ public class Almacen implements IAlmacen {
     public IProducto getPrimero(){
         if (this.esVacia()) System.out.println("Almacen vacio.");
         else {
-            //return this.
+            //return el poroducto
         }
     }
     
