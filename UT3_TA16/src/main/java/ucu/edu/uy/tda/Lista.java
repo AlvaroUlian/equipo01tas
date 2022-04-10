@@ -13,12 +13,20 @@ public class Lista<T> implements ILista<T>
     @Override
     public void insertar(Nodo<T> unNodo)
     {
-        // Implementar método
+        if (primero == null){
+            this.primero = unNodo;
+        }
+        else{
+            unNodo.setSiguiente(primero);
+            primero = unNodo;
+        }
     }
 
     @Override
     public Nodo<T> buscar(Comparable clave)
     {
+        // Implementar método
+        return null;
         // Implementar método
     }
 

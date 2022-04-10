@@ -4,6 +4,9 @@
  */
 package ucu.edu.uy.ut3.ta16;
 
+import ucu.edu.uy.tda.ILista;
+import ucu.edu.uy.tda.Lista;
+
 
 /**
  *
@@ -11,7 +14,8 @@ package ucu.edu.uy.ut3.ta16;
  */
 public class Pelicula
 {
-
+    public ILista<Participante> listaParticipantes = new Lista<>();
+    
     private int id;
     private String nombre;
     private int anio;

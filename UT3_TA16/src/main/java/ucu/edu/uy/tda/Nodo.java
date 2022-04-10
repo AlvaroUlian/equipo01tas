@@ -9,12 +9,12 @@ public class Nodo<T> implements INodo<T> {
     private final Comparable etiqueta;
     private T dato;
     private Nodo<T> siguiente = null;
-
+    
     public Nodo(Comparable etiqueta, T dato ) {
         this.etiqueta = etiqueta;
         this.dato = dato;
     }
-
+    
     public T getDato() {
         return this.dato;
     }
