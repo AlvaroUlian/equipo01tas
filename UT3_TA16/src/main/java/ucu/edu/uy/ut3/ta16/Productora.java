@@ -23,7 +23,7 @@ public class Productora
     public static final String ARCHIVO_PERSONAS_EN_PELIS = "pers_participa_peli.csv";
 
     public ILista<Pelicula> listaPeliculas = new Lista<>();
-    public ILista<Participante> listaPersonas = new Lista<>();
+    public ILista<Participante> listaPersonas = new Lista<>(); //lista de todas las personas.
 
 
     public void cargarDatos()
@@ -44,29 +44,46 @@ public class Productora
            Nodo<Participante> nodoPersona = new Nodo<>(Integer.parseInt(linea[0]),persona);
            listaPersonas.insertar(nodoPersona);
          }
-        /*
+        
         for (int i = 0; i < altasPersonasEnPelis.length; i++){
            String[] linea = altasPersonas[i].split(",");
-           pelicula = listaPeliculas.buscar(linea[1]);
-           persona = listaPersonas.buscar(linea[0])
-           if(pelicula && persona){
-              pelicula.agregarParticipante // Agregarle una lista de nodos paticipante a cada peli ? 
+           
+            INodo<Pelicula> nodoPelicula = listaPeliculas.buscar(Integer.parseInt(linea[1]));
+            Nodo<Participante> nodoParticipante = listaPersonas.buscar(Integer.parseInt(linea[0]));
+            
+           if((nodoPelicula!= null) && (nodoParticipante!= null)){ //Si existe la pelicula y la persona
+             Pelicula pelicula = nodoPelicula.getDato();
+             pelicula.agregarParticipante(nodoParticipante);
            }
            
-        */
-         }        
         
-        public ILista<Participante> obtenerParticipantesPelicula(Comparable idPelicula)
+         }        
+    }
+    
+    public ILista<Participante> obtenerParticipantesPelicula(Comparable idPelicula)
     {
-        // Implementar método
+        INodo<Pelicula> nodoPelicula = listaPeliculas.buscar(idPelicula);
+        if (nodoPelicula != null){
+            Pelicula pelicula = nodoPelicula.getDato();
+            
+            return pelicula.getListaParticipantes();
+        }
         return null;
-        // Implementar método
     }
 
     public ILista<Pelicula> obtenerPeliculasDelParticipante(Comparable idParticipante)
     {
+        INodo<Pelicula> nodoPelicula = listaPeliculas.getPrimero();
         
-        // Implementar método
+        while(nodoPelicula != null){
+            Pelicula pelicula = nodoPelicula.getDato();
+            INodo nodoParticipante = pelicula.getListaParticipantes().buscar(idParticipante); //busca el pareticipante en cada pelicula
+            
+            if (nodoParticipante != null){
+              //Participante participante = nodoParticipante.getDato(); //esta dando error se pretende armar una nueva lista a contunuacion y 
+                                                                                //retornarla
+            }
+        }
         return null;
         
         // Implementar método

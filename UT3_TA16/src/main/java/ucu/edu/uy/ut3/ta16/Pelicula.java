@@ -5,7 +5,9 @@
 package ucu.edu.uy.ut3.ta16;
 
 import ucu.edu.uy.tda.ILista;
+import ucu.edu.uy.tda.INodo;
 import ucu.edu.uy.tda.Lista;
+import ucu.edu.uy.tda.Nodo;
 
 
 /**
@@ -14,7 +16,7 @@ import ucu.edu.uy.tda.Lista;
  */
 public class Pelicula
 {
-    public ILista<Participante> listaParticipantes = new Lista<>();
+    private ILista<Participante> listaParticipantes = new Lista<>();
     
     private int id;
     private String nombre;
@@ -36,9 +38,15 @@ public class Pelicula
         this.genero = genero;
         this.idiomaOriginal = idiomaOriginal;
     }
-
     
-
+    public void agregarParticipante(Nodo<Participante> nodo){
+        Nodo nuevoNodo = nodo.clonar(); //Clona el nodo que contiene la persona.
+        listaParticipantes.insertar(nuevoNodo); //Insertarlo en la lista participantes de la peli.
+        
+    }
+    public ILista<Participante> getListaParticipantes(){
+       return this.listaParticipantes;
+    } 
     public int getId()
     {
         return id;

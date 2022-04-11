@@ -25,9 +25,16 @@ public class Lista<T> implements ILista<T>
     @Override
     public Nodo<T> buscar(Comparable clave)
     {
-        // Implementar método
-        return null;
-        // Implementar método
+        if (this.primero == null){
+           return null; 
+        }
+        else{
+            Nodo<T> actual = primero;
+            while (actual.getSiguiente() != null){
+                actual = actual.getSiguiente();
+            }
+            return actual;
+        }
     }
 
     @Override
