@@ -50,11 +50,20 @@ public class ManejadorArchivosGenerico
             fr = new FileReader(nombreCompletoArchivo);
             BufferedReader br = new BufferedReader(fr);
             String lineaActual = br.readLine();
-            while (lineaActual != null)
+            boolean primeraLinea = true;
+            System.out.println("********Manejador comienza armar array*********");
+            while (lineaActual != null) 
             {
-                listaLineasArchivo.add(lineaActual);
-                lineaActual = br.readLine();
+                if (primeraLinea != true){            //No agregar primer linea
+                  listaLineasArchivo.add(lineaActual);
+                  lineaActual = br.readLine();  
+                }
+                else{lineaActual = br.readLine();    //No agregar primer linea
+                    primeraLinea = false;
+                }
+                
             }
+            
             br.close();
             fr.close();
         }

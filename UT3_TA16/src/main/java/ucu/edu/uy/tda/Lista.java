@@ -32,6 +32,9 @@ public class Lista<T> implements ILista<T>
             Nodo<T> actual = primero;
             while (actual.getSiguiente() != null){
                 actual = actual.getSiguiente();
+                if (actual.getEtiqueta() == clave){
+                    return actual;
+                }
             }
             return actual;
         }

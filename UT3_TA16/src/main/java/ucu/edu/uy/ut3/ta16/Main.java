@@ -21,8 +21,13 @@ public class Main
     {
         Productora productora = new Productora();
         productora.cargarDatos();
-        ILista<Pelicula> peliculas = productora.obtenerPeliculasDelParticipante("12");
-        ILista<Participante> participantesPeli = productora.obtenerParticipantesPelicula("1278");
+        
+        //productora.listaPeliculas.imprimir(); 
+        //productora.listaPersonas.imprimir();
+        
+        //ILista<Pelicula> peliculas = productora.obtenerPeliculasDelParticipante("12");
+        //ILista<Participante> participantesPeli = productora.obtenerParticipantesPelicula("1278");
+        
         
     }
 

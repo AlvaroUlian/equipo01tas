@@ -29,15 +29,21 @@ public class Productora
     public void cargarDatos()
     {
         String[] altasPeliculas = ManejadorArchivosGenerico.leerArchivo(ARCHIVO_PELIS);
-        String[] altasPersonas = ManejadorArchivosGenerico.leerArchivo(ARCHIVO_PERSONAS);
-        String[] altasPersonasEnPelis = ManejadorArchivosGenerico.leerArchivo(ARCHIVO_PERSONAS_EN_PELIS);
+        //String[] altasPersonas = ManejadorArchivosGenerico.leerArchivo(ARCHIVO_PERSONAS);
+        //String[] altasPersonasEnPelis = ManejadorArchivosGenerico.leerArchivo(ARCHIVO_PERSONAS_EN_PELIS);
+        System.out.println("Hay "+altasPeliculas.length+" cantidad de PELICULAS leídas \n");
         
         for (int i = 0; i < altasPeliculas.length; i++){
+           System.out.println("+1 pelicula listada...");
            String[] linea = altasPeliculas[i].split(",");
            Pelicula pelicula = new Pelicula(Integer.parseInt(linea[0]), linea[1], Integer.parseInt(linea[2]), Integer.parseInt(linea[3]), linea[4], linea[5]);
            Nodo<Pelicula> nodoPeliculas = new Nodo<>(pelicula.getId(),pelicula);
            listaPeliculas.insertar(nodoPeliculas);
          }
+        
+        /*
+        ///ESTA FUNCIONANDO 
+        
         for (int i = 0; i < altasPersonas.length; i++){
            String[] linea = altasPersonas[i].split(",");
            Participante persona = new Participante(Integer.parseInt(linea[0]), linea[1]);
@@ -55,9 +61,8 @@ public class Productora
              Pelicula pelicula = nodoPelicula.getDato();
              pelicula.agregarParticipante(nodoParticipante);
            }
-           
-        
-         }        
+        }
+        */
     }
     
     public ILista<Participante> obtenerParticipantesPelicula(Comparable idPelicula)
@@ -74,19 +79,21 @@ public class Productora
     public ILista<Pelicula> obtenerPeliculasDelParticipante(Comparable idParticipante)
     {
         INodo<Pelicula> nodoPelicula = listaPeliculas.getPrimero();
+        ILista<Pelicula> PeliculasParticipante = new Lista();
         
         while(nodoPelicula != null){
             Pelicula pelicula = nodoPelicula.getDato();
-            INodo nodoParticipante = pelicula.getListaParticipantes().buscar(idParticipante); //busca el pareticipante en cada pelicula
+            INodo<Participante> nodoParticipante = pelicula.getListaParticipantes().buscar(idParticipante); //busca el pareticipante en cada pelicula
             
             if (nodoParticipante != null){
-              //Participante participante = nodoParticipante.getDato(); //esta dando error se pretende armar una nueva lista a contunuacion y 
-                                                                                //retornarla
+                Participante participante = nodoParticipante.getDato();
+                Nodo nodoPeliculasParticipante = new Nodo(pelicula.getId(),pelicula);
+                PeliculasParticipante.insertar(nodoPeliculasParticipante);
+                
             }
         }
-        return null;
+        return PeliculasParticipante;
         
-        // Implementar método
     }
         
  }
