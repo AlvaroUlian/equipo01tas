@@ -7,12 +7,13 @@ package com.mycompany.ut4_arbolbinariodebusqueda;
 /**
  *
  * @author facum
+ * @param <T>
  */
 public interface INodoABB<T> {
     
     public int contarHojas();
     public int tamaño();
     public int altura();
-    public boolean esVacio();
-    
+    public int sumar();
+    public int getValor();
 }

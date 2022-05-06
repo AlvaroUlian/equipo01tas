@@ -7,12 +7,16 @@ package com.mycompany.ut4_arbolbinariodebusqueda;
 /**
  *
  * @author facum
+ * @param <T>
  */
 public interface IArbolBB <T> {
 
-    public void contarHojas();
-    public void tamaño();
-    public void altura();
-    public void esVacio();
+    public int contarHojas();
+    public int tamaño();
+    public int altura();
+    public boolean esVacio();
+    public int sumar();
+    public INodoABB<T> getRaiz();
+    public void insertar();
 }
 

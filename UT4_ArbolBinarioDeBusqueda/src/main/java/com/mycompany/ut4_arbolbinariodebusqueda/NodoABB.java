@@ -3,60 +3,82 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.ut4_arbolbinariodebusqueda;
-
 /**
  *
  * @author facum
+ * @param <T>
  */
 public class NodoABB<T> implements INodoABB<T> {
     private INodoABB<T> hijoIzq;
     private INodoABB<T> hijoDer;
+    private final int valor;
+
+    public <T> NodoABB(INodoABB<T> hijoIzq,INodoABB<T> hijoDer) {
+        this.valor = 0;
+    }
     
     @Override
-    public void contarHojas() {
-        if (hijoIzq == nulo && hijoDere == nulo){
+    public int contarHojas() {
+        int cantIzq = 0;
+        int cantDer = 0;
+        
+        if (hijoIzq == null && hijoDer == null){
 		return 1;
         }
-	
-	if (hijoIzq != nulo){
+	if (hijoIzq != null){
 		cantIzq = hijoIzq.contarHojas();
         }
-	
-	if (hijoDer != nulo){
+	if (hijoDer != null){
 		cantDer = hijoDer.contarHojas();
         }
 	return cantIzq + cantDer;
+    }
+
+    @Override
+    public int tamaño() {
+        int cantIzq = 0;
+        int cantDer = 0;
         
+        if (hijoIzq != null){
+		cantIzq = hijoIzq.tamaño();
+        }
+	if (hijoDer != null){
+		cantDer = hijoDer.tamaño();
+        }
+	return cantIzq + cantDer  + 1;
     }
 
     @Override
-    public void tamaño() {
-        if (hijoIzq != nulo){
-		cantIzq = hijoIzq.altura()
-        }
-	if (hijoDer != nulo){
-		cantDer = hijoDer.altura()
-        }
-	
-	return hijoIzq + hijoDer  + 1
-    }
-
-    @Override
-    public void altura() {
-        if (hijoIzq != nulo){
-		cantIzq = hijoIzq.altura()
-        }
-	if (hijoDer != nulo){
-		cantDer = hijoDer.altura()
-        }
-	
-	return max(izq, drc) + 1;
+    public int altura(){
+        int cantIzq = 0;
+        int cantDer = 0;
         
+        if (hijoIzq != null){
+		cantIzq = hijoIzq.altura();
+        }
+	if (hijoDer != null){
+		cantDer = hijoDer.altura();
+        }
+	return Math.max(cantIzq,cantDer)+1;
     }
 
     @Override
-    public void esVacio() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public int sumar() {
+        int cantIzq = 0;
+        int cantDer = 0;
+        
+        if (hijoIzq != null){
+            cantIzq = hijoIzq.sumar();
+        }
+        if (hijoDer != null){
+            cantDer = hijoDer.sumar();
+        }
+        return cantIzq + cantDer + this.getValor();
+    }
+    
+    @Override
+    public int getValor(){
+        return this.valor;
     }
     
 }
