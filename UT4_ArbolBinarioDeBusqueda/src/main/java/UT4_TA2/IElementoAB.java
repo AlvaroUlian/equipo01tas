@@ -1,3 +1,6 @@
+package UT4_TA2;
+
+
 public interface IElementoAB<T> {
 
     /**
@@ -12,28 +15,28 @@ public interface IElementoAB<T> {
      *
      * @return Hijo Izquierdo del nodo.
      */
-    public TElementoAB<T> getHijoIzq();
+    public IElementoAB<T> getHijoIzq();
 
     /**
      * Obtiene el hijo derecho del nodo.
      *
      * @return Hijo derecho del nodo.
      */
-    public TElementoAB<T> getHijoDer();
+    public IElementoAB<T> getHijoDer();
 
     /**
      * Asigna el hijo izquierdo del nodo.
      *
      * @return Elemento a ser asignado como hijo izquierdo.
      */
-    public void setHijoIzq(TElementoAB<T> elemento);
+    public void setHijoIzq(IElementoAB<T> elemento);
 
     /**
      * Asigna el hijo derecho del nodo.
      *
      * @return Elemento a ser asignado como hijo derecho.
      */
-    public void setHijoDer(TElementoAB<T> elemento);
+    public void setHijoDer(IElementoAB<T> elemento);
 
     /**
      * Busca un elemento dentro del arbol con la etiqueta indicada.
@@ -41,7 +44,7 @@ public interface IElementoAB<T> {
      * @param unaEtiqueta del nodo a buscar
      * @return Elemento encontrado. En caso de no encontrarlo, retorna nulo.
      */
-    public TElementoAB<T> buscar(Comparable unaEtiqueta);
+    public IElementoAB<T> buscar(Comparable unaEtiqueta);
 
  
 
@@ -51,7 +54,7 @@ public interface IElementoAB<T> {
      * @param elemento Elemento a insertar.
      * @return Exito de la operaci�n.
      */
-    public boolean insertar(TElementoAB<T> elemento);
+    public boolean insertar(IElementoAB<T> elemento);
 
     /**
      * Imprime en preorden el arbol separado por guiones.
@@ -86,6 +89,6 @@ public interface IElementoAB<T> {
      * @param unaEtiqueta
      * @return 
      */
-    public TElementoAB eliminar(Comparable unaEtiqueta);
+    public IElementoAB eliminar(Comparable unaEtiqueta);
 
 }

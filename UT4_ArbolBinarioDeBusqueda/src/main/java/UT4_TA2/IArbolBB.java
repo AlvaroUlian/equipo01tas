@@ -1,3 +1,5 @@
+package UT4_TA2;
+
 public interface IArbolBB<T> {
 
     /**
@@ -8,7 +10,7 @@ public interface IArbolBB<T> {
      * @return Exito de la operacián
      */
 
-    public boolean insertar(TElementoAB<T> unElemento);
+    public boolean insertar(IElementoAB<T> unElemento);
 
  
 
@@ -20,7 +22,7 @@ public interface IArbolBB<T> {
      * .
      * @return Elemento encontrado. En caso de no encontrarlo, retorna nulo.
      */
-    public TElementoAB<T> buscar(Comparable unaEtiqueta);
+    public IElementoAB<T> buscar(Comparable unaEtiqueta);
 
     /**
      * Imprime en PreOrden los elementos del árbol, separados por guiones.
