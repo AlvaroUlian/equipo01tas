@@ -14,6 +14,10 @@ public class TElementoArbolBB<T> implements IElementoAB<T>{
     private IElementoAB<T> izquierdo;
     private IElementoAB<T> derecho;
     private T dato;
+    
+    public TElementoArbolBB(Comparable unaEtiqueta){
+        etiqueta = unaEtiqueta;
+    }
 
     @Override
     public Comparable getEtiqueta() {
@@ -42,6 +46,7 @@ public class TElementoArbolBB<T> implements IElementoAB<T>{
 
     @Override
     public IElementoAB<T> buscar(Comparable unaEtiqueta) {
+        
         IElementoAB<T> nodo = null;
         if (this.etiqueta == unaEtiqueta){
             return this;
@@ -57,6 +62,7 @@ public class TElementoArbolBB<T> implements IElementoAB<T>{
 
     @Override
     public boolean insertar(IElementoAB<T> elemento) {
+        
         if(elemento.getEtiqueta().compareTo(etiqueta) < 0){
             if(this.izquierdo != null){
                 return getHijoIzq().insertar(elemento);
