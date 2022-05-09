@@ -14,14 +14,15 @@ public class Main {
     {
         TArbolBB arbol1 = new TArbolBB();
         
-        String[] archivo = ManejadorArchivosGenerico.leerArchivo("clave1.txt");
+        String[] archivo = ManejadorArchivosGenerico.leerArchivo("claves1.txt");
         
-        for (int i = 0; i < archivo.length; i++){
-            String[] linea = archivo[i].split(",");
-            
-            TElementoArbolBB elemento = new TElementoArbolBB(Integer.parseInt(linea[0]));
-            arbol1.insertar(elemento);
+        for (String linea : archivo) {
+            arbol1.insertar(new TElementoArbolBB<String>(Integer.parseInt(linea)));
         }
+        
+        
+        System.out.println(arbol1.inOrden());
+        
     
     }
     

@@ -10,7 +10,7 @@ package UT4_TA2;
  */
 public class TArbolBB<T> implements IArbolBB<T>{
     
-    private IElementoAB raiz;
+    private IElementoAB<T> raiz;
 
     @Override
     public boolean insertar(IElementoAB<T> unElemento) {

@@ -21,27 +21,27 @@ public class TElementoArbolBB<T> implements IElementoAB<T>{
 
     @Override
     public Comparable getEtiqueta() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.etiqueta;
     }
 
     @Override
     public IElementoAB<T> getHijoIzq() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.izquierdo;
     }
 
     @Override
     public IElementoAB<T> getHijoDer() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.derecho;
     }
 
     @Override
     public void setHijoIzq(IElementoAB<T> elemento) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.izquierdo = elemento;
     }
 
     @Override
     public void setHijoDer(IElementoAB<T> elemento) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        this.derecho = elemento;
     }
 
     @Override
