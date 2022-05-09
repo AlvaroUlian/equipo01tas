@@ -11,9 +11,15 @@ package com.mycompany.ut4_arbolbinariodebusqueda;
  */
 public interface INodoABB<T> {
     
+    public INodoABB<T> buscar(int valor);
     public int contarHojas();
     public int tamaño();
     public int altura();
     public int sumar();
+    public int cantNodosNivel(int nivel);
+    public int cantNodosInternos();
+    public int cantNodosCompletos();    
     public int getValor();
+    public INodoABB<T> getIzq();
+    public INodoABB<T> getDer();
 }

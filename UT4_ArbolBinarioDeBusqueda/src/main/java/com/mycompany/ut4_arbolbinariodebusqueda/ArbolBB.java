@@ -17,6 +17,14 @@ public class ArbolBB<T> implements IArbolBB<T> {
     }
     
     @Override
+    public INodoABB<T> buscar(int valor) {
+        if (raiz != null){
+            return raiz.buscar(valor);
+        }
+        return null;
+    }
+    
+    @Override
     public void insertar() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
@@ -28,7 +36,27 @@ public class ArbolBB<T> implements IArbolBB<T> {
         }
         return -1;
     }
-
+    @Override
+    public int cantNodosNivel(int nivel) {
+        if (raiz != null){
+            return raiz.cantNodosNivel(nivel);
+        }
+        return -1;
+    }
+    @Override
+    public int cantNodosInternos() {
+        if (raiz != null){
+            return raiz.cantNodosInternos();
+        }
+        return -1;
+    }
+    @Override
+    public int cantNodosCompletos() {
+        if (raiz != null){
+            return raiz.cantNodosCompletos();
+        }
+        return -1;
+    }
     @Override
     public int tamaño() {
         if (raiz != null){
@@ -61,6 +89,13 @@ public class ArbolBB<T> implements IArbolBB<T> {
     @Override
     public INodoABB<T> getRaiz() {
         return this.raiz;
+    }
+
+    @Override
+    public int claveMenor() {
+        INodoABB<T> actual = raiz;
+        
+        return 0;
     }
 
 }
