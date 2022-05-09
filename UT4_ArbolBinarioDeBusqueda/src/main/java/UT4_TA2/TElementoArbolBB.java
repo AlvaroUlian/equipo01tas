@@ -42,7 +42,17 @@ public class TElementoArbolBB<T> implements IElementoAB<T>{
 
     @Override
     public IElementoAB<T> buscar(Comparable unaEtiqueta) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        IElementoAB<T> nodo = null;
+        if (this.etiqueta == unaEtiqueta){
+            return this;
+        }
+        if (izquierdo != null){
+            nodo = izquierdo.buscar(unaEtiqueta);
+        }
+        if (derecho != null && nodo == null){
+            nodo = derecho.buscar(unaEtiqueta);
+        }
+        return nodo;
     }
 
     @Override
@@ -68,17 +78,43 @@ public class TElementoArbolBB<T> implements IElementoAB<T>{
 
     @Override
     public String preOrden() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String resultado = "";
+        resultado = resultado + this.getEtiqueta().toString() + "-";
+        if(this.getHijoIzq() != null){
+            resultado = resultado + getHijoIzq().preOrden();
+        }
+        if(this.getHijoDer() != null){
+            resultado = resultado + getHijoDer().preOrden();
+        }
+        return resultado;
     }
 
     @Override
     public String inOrden() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+        String resultado = "";
+        if(this.getHijoIzq() != null){
+            resultado = resultado + getHijoIzq().inOrden();
+        }
+        resultado = resultado + this.getEtiqueta().toString() + "-";
+        if(this.getHijoDer() != null){
+            resultado = resultado + getHijoDer().inOrden();
+        }
+        return resultado;
     }
 
     @Override
     public String postOrden() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
+        String resultado = "";
+        if(this.getHijoIzq() != null){
+            resultado = resultado + getHijoIzq().postOrden();
+        }
+        if(this.getHijoDer() != null){
+            resultado = resultado + getHijoDer().postOrden();
+        }
+        resultado = resultado + this.getEtiqueta().toString() + "-";
+        return resultado;
     }
 
     @Override

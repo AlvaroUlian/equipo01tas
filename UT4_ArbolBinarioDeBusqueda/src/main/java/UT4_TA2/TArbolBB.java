@@ -8,7 +8,7 @@ package UT4_TA2;
  *
  * @author anavalin
  */
-public class TArbolBB implements IArbolBB<T>{
+public class TArbolBB<T> implements IArbolBB<T>{
     
     private IElementoAB raiz;
 
@@ -24,22 +24,37 @@ public class TArbolBB implements IArbolBB<T>{
 
     @Override
     public IElementoAB<T> buscar(Comparable unaEtiqueta) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (raiz != null){
+            return raiz.buscar(unaEtiqueta);
+        }
+        return null;
     }
 
     @Override
     public String preOrden() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(this.raiz == null){
+            return null;
+        } else{
+            return this.raiz.preOrden();
+        }
     }
 
     @Override
     public String inOrden() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(this.raiz == null){
+            return null;
+        } else{
+            return this.raiz.inOrden();
+        }
     }
 
     @Override
     public String postOrden() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       if(this.raiz == null){
+            return null;
+        } else{
+            return this.raiz.postOrden();
+        }
     }
 
     @Override
