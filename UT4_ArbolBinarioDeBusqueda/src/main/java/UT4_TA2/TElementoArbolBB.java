@@ -135,12 +135,76 @@ public class TElementoArbolBB<T> implements IElementoAB<T>{
     public T getDatos() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
+    public int tamaño() {
+        int cantIzq = 0;
+        int cantDer = 0;
+        
+        if (izquierdo != null){
+		cantIzq = izquierdo.tamaño();
+        }
+	if (derecho != null){
+		cantDer = derecho.tamaño();
+        }
+	return cantIzq + cantDer  + 1;
+    }
 
     @Override
     public IElementoAB eliminar(Comparable unaEtiqueta) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public int contarHojas() {
+        int cantIzq = 0;
+        int cantDer = 0;
+        
+        if (izquierdo == null && derecho == null){
+		return 1;
+        }
+	if (izquierdo != null){
+		cantIzq = izquierdo.contarHojas();
+        }
+	if (derecho != null){
+		cantDer = derecho.contarHojas();
+        }
+	return cantIzq + cantDer;
+    }
+
+    @Override
+    public int altura() {
+        int cantIzq = 0;
+        int cantDer = 0;
+        
+        if (izquierdo != null){
+		cantIzq = izquierdo.altura();
+        }
+	if (derecho != null){
+		cantDer = derecho.altura();
+        }
+	return Math.max(cantIzq,cantDer)+1;
+    }
     
-    
+    public int nivelNodoABB(Comparable unaEtiqueta){
+        int resultado = 0;
+        if (this.getEtiqueta().compareTo(unaEtiqueta) == 0){
+            return 1;
+        } else {
+            if (this.getEtiqueta().compareTo(unaEtiqueta) > 0){
+                if (this.getHijoIzq() != null) {
+                    resultado += 1 + this.getHijoIzq().nivelNodoABB(unaEtiqueta);
+                }
+            } else if (this.getEtiqueta().compareTo(unaEtiqueta) < 0){
+                if (this.getHijoDer() != null){
+                    resultado += 1 + this.getHijoDer().nivelNodoABB(unaEtiqueta);
+                }
+            }
+        }
+        if (resultado > 0) {
+            return resultado;
+        } else {
+            return -1;
+        }      
+    }
     
 }

@@ -57,12 +57,42 @@ public class TArbolBB<T> implements IArbolBB<T>{
             return this.raiz.postOrden();
         }
     }
+    
+    public int tamaño() {
+        if (raiz != null){
+            return raiz.tamaño();
+        }
+        return -1;
+    }
 
     @Override
     public void eliminar(Comparable unaEtiqueta) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public int contarHojas() {
+        if (raiz != null){
+            return raiz.contarHojas();
+        }
+        return -1;
+    }
+
+    @Override
+    public int altura() {
+        if (raiz != null){
+            return raiz.altura();
+        }
+        return -1;
+    }
     
+    public int nivelNodoABB(Comparable unaEtiqueta) {
+        if(this.raiz == null){
+            return -1;
+        } else{
+            return this.raiz.nivelNodoABB(unaEtiqueta);
+        }
+    }
     
     
 }

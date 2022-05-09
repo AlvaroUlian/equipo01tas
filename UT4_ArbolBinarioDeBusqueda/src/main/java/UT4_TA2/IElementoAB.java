@@ -90,5 +90,10 @@ public interface IElementoAB<T> {
      * @return 
      */
     public IElementoAB eliminar(Comparable unaEtiqueta);
+    
+    public int contarHojas();
+    public int tamaño();
+    public int altura();
+    public int nivelNodoABB(Comparable unaEtiqueta);
 
 }

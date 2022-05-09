@@ -21,8 +21,15 @@ public class Main {
         }
         
         
-        System.out.println(arbol1.inOrden());
+        System.out.println("Inorder: " + arbol1.inOrden());
+        System.out.println("Postorder: " + arbol1.postOrden());
+        System.out.println("Preorder: " + arbol1.preOrden());
         
+        System.out.println("Altura: " + arbol1.altura());
+        System.out.println("Tamaño: " + arbol1.tamaño());
+        System.out.println("Cant Hojas: " + arbol1.contarHojas());
+        
+        System.out.println("Nivel de valor 11988: " + arbol1.nivelNodoABB(11988));
     
     }
     

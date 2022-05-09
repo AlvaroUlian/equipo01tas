@@ -51,8 +51,11 @@ public interface IArbolBB<T> {
      * @param unaEtiqueta 
      */
     public void eliminar(Comparable unaEtiqueta);
-
-	
+    
+    public int contarHojas();
+    public int tamaño();
+    public int altura();
+    public int nivelNodoABB(Comparable unaEtiqueta);
 	
 }
 
