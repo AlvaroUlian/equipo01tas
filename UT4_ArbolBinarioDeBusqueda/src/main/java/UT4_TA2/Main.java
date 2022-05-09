@@ -10,15 +10,20 @@ package UT4_TA2;
  */
 public class Main {
     
-    TArbolBB arbol1 = new TArbolBB();
-    
-    String[] archivo = ManejadorArchivosGenerico.leerArchivo("clave1.txt");
-    
-    for (int i = 0; i < archivo.length; i++){
-        String[] linea = archivo[i].split(",");
+    public static void main(String[] args)
+    {
+        TArbolBB arbol1 = new TArbolBB();
+        
+        String[] archivo = ManejadorArchivosGenerico.leerArchivo("clave1.txt");
+        
+        for (int i = 0; i < archivo.length; i++){
+            String[] linea = archivo[i].split(",");
             
-        TElementoArbolBB elemento = new TElementoArbolBB(Integer.parseInt(linea[0]));
-        arbol1.insertar(elemento);
+            TElementoArbolBB elemento = new TElementoArbolBB(Integer.parseInt(linea[0]));
+            arbol1.insertar(elemento);
+        }
+    
     }
+    
     
 }
