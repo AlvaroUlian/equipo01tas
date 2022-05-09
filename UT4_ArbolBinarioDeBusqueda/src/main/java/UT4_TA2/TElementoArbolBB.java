@@ -47,17 +47,25 @@ public class TElementoArbolBB<T> implements IElementoAB<T>{
     @Override
     public IElementoAB<T> buscar(Comparable unaEtiqueta) {
         
-        IElementoAB<T> nodo = null;
-        if (this.etiqueta == unaEtiqueta){
+        if(this.getEtiqueta().compareTo(unaEtiqueta) == 0){
             return this;
+        } else {
+            if (this.getEtiqueta().compareTo(unaEtiqueta) > 0){
+                if (this.getHijoIzq() != null) {
+                    return this.getHijoIzq().buscar(unaEtiqueta);
+                } else {
+                    return null;
+                }
+            } else if (this.getEtiqueta().compareTo(unaEtiqueta) < 0){
+                if (this.getHijoDer() != null){
+                    return this.getHijoDer().buscar(unaEtiqueta);
+                } else {
+                    return null;
+                }
+            } else {
+                return null;
+            }
         }
-        if (izquierdo != null){
-            nodo = izquierdo.buscar(unaEtiqueta);
-        }
-        if (derecho != null && nodo == null){
-            nodo = derecho.buscar(unaEtiqueta);
-        }
-        return nodo;
     }
 
     @Override

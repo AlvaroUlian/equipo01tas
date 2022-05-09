@@ -24,10 +24,11 @@ public class TArbolBB<T> implements IArbolBB<T>{
 
     @Override
     public IElementoAB<T> buscar(Comparable unaEtiqueta) {
-        if (raiz != null){
-            return raiz.buscar(unaEtiqueta);
+        if(this.raiz == null){
+            return null;
+        } else{
+            return this.raiz.buscar(unaEtiqueta);
         }
-        return null;
     }
 
     @Override
