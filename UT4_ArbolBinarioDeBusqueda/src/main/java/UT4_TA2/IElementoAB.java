@@ -46,8 +46,6 @@ public interface IElementoAB<T> {
      */
     public IElementoAB<T> buscar(Comparable unaEtiqueta);
 
- 
-
     /**
      * Inserta un elemento dentro del arbol.
      *

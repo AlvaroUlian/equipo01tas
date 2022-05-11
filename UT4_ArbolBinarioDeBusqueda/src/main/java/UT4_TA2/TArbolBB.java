@@ -7,17 +7,21 @@ package UT4_TA2;
 /**
  *
  * @author anavalin
+ * @param <T>
  */
 public class TArbolBB<T> implements IArbolBB<T>{
-    
     private IElementoAB<T> raiz;
+    static private int contInsertar;
 
     @Override
     public boolean insertar(IElementoAB<T> unElemento) {
+        contInsertar += 1;
         if(raiz == null){
             this.raiz = unElemento;
+            System.out.println(contInsertar);
             return true;
         }else{
+            System.out.println(contInsertar);
             return raiz.insertar(unElemento);
         }
     }
@@ -86,6 +90,7 @@ public class TArbolBB<T> implements IArbolBB<T>{
         return -1;
     }
     
+    @Override
     public int nivelNodoABB(Comparable unaEtiqueta) {
         if(this.raiz == null){
             return -1;

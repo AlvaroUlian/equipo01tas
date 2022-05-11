@@ -105,7 +105,6 @@ public class TElementoArbolBB<T> implements IElementoAB<T>{
 
     @Override
     public String inOrden() {
-        
         String resultado = "";
         if(this.getHijoIzq() != null){
             resultado = resultado + getHijoIzq().inOrden();
@@ -119,7 +118,6 @@ public class TElementoArbolBB<T> implements IElementoAB<T>{
 
     @Override
     public String postOrden() {
-        
         String resultado = "";
         if(this.getHijoIzq() != null){
             resultado = resultado + getHijoIzq().postOrden();
