@@ -17,7 +17,7 @@ public class Main {
         String[] archivo = ManejadorArchivosGenerico.leerArchivo("claves1.txt");
         
         for (String linea : archivo) {
-            arbol1.insertar(new TElementoArbolBB<String>(Integer.parseInt(linea)));
+            //arbol1.insertar(new TElementoArbolBB<String>(Integer.parseInt(linea)));
         }
         
         
