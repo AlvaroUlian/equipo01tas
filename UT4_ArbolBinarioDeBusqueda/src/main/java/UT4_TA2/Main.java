@@ -30,6 +30,7 @@ public class Main {
         System.out.println("Cant Hojas: " + arbol1.contarHojas());
         
         System.out.println("Nivel de valor 11988: " + arbol1.nivelNodoABB(11988));
+        //-1 al nivel 
     
     }
     

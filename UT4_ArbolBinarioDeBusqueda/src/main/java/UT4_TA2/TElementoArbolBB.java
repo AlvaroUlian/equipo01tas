@@ -15,8 +15,9 @@ public class TElementoArbolBB<T> implements IElementoAB<T>{
     private IElementoAB<T> derecho;
     private T dato;
     
-    public TElementoArbolBB(Comparable unaEtiqueta){
+    public TElementoArbolBB(Comparable unaEtiqueta, T dato){
         etiqueta = unaEtiqueta;
+        this.dato = dato;
     }
 
     @Override
@@ -131,7 +132,7 @@ public class TElementoArbolBB<T> implements IElementoAB<T>{
 
     @Override
     public T getDatos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.dato;
     }
     
     public int tamaño() {

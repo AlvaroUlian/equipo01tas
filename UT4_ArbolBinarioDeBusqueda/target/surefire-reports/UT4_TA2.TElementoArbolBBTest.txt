@@ -1,0 +1,68 @@
+-------------------------------------------------------------------------------
+Test set: UT4_TA2.TElementoArbolBBTest
+-------------------------------------------------------------------------------
+Tests run: 16, Failures: 16, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec <<< FAILURE!
+UT4_TA2.TElementoArbolBBTest.testGetEtiqueta()  Time elapsed: 0.003 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "UT4_TA2.TElementoArbolBB.getEtiqueta()" because "instance" is null
+	at UT4_TA2.TElementoArbolBBTest.testGetEtiqueta(TElementoArbolBBTest.java:47)
+
+UT4_TA2.TElementoArbolBBTest.testGetHijoIzq()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "UT4_TA2.TElementoArbolBB.getHijoIzq()" because "instance" is null
+	at UT4_TA2.TElementoArbolBBTest.testGetHijoIzq(TElementoArbolBBTest.java:61)
+
+UT4_TA2.TElementoArbolBBTest.testGetHijoDer()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "UT4_TA2.TElementoArbolBB.getHijoDer()" because "instance" is null
+	at UT4_TA2.TElementoArbolBBTest.testGetHijoDer(TElementoArbolBBTest.java:75)
+
+UT4_TA2.TElementoArbolBBTest.testSetHijoIzq()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "UT4_TA2.TElementoArbolBB.setHijoIzq(UT4_TA2.IElementoAB)" because "instance" is null
+	at UT4_TA2.TElementoArbolBBTest.testSetHijoIzq(TElementoArbolBBTest.java:88)
+
+UT4_TA2.TElementoArbolBBTest.testSetHijoDer()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "UT4_TA2.TElementoArbolBB.setHijoDer(UT4_TA2.IElementoAB)" because "instance" is null
+	at UT4_TA2.TElementoArbolBBTest.testSetHijoDer(TElementoArbolBBTest.java:100)
+
+UT4_TA2.TElementoArbolBBTest.testBuscar()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "UT4_TA2.TElementoArbolBB.buscar(java.lang.Comparable)" because "instance" is null
+	at UT4_TA2.TElementoArbolBBTest.testBuscar(TElementoArbolBBTest.java:114)
+
+UT4_TA2.TElementoArbolBBTest.testInsertar()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "UT4_TA2.TElementoArbolBB.insertar(UT4_TA2.IElementoAB)" because "instance" is null
+	at UT4_TA2.TElementoArbolBBTest.testInsertar(TElementoArbolBBTest.java:128)
+
+UT4_TA2.TElementoArbolBBTest.testPreOrden()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "UT4_TA2.TElementoArbolBB.preOrden()" because "instance" is null
+	at UT4_TA2.TElementoArbolBBTest.testPreOrden(TElementoArbolBBTest.java:142)
+
+UT4_TA2.TElementoArbolBBTest.testInOrden()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "UT4_TA2.TElementoArbolBB.inOrden()" because "instance" is null
+	at UT4_TA2.TElementoArbolBBTest.testInOrden(TElementoArbolBBTest.java:156)
+
+UT4_TA2.TElementoArbolBBTest.testPostOrden()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "UT4_TA2.TElementoArbolBB.postOrden()" because "instance" is null
+	at UT4_TA2.TElementoArbolBBTest.testPostOrden(TElementoArbolBBTest.java:170)
+
+UT4_TA2.TElementoArbolBBTest.testGetDatos()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "UT4_TA2.TElementoArbolBB.getDatos()" because "instance" is null
+	at UT4_TA2.TElementoArbolBBTest.testGetDatos(TElementoArbolBBTest.java:184)
+
+UT4_TA2.TElementoArbolBBTest.testTamaño()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "UT4_TA2.TElementoArbolBB.tamaño()" because "instance" is null
+	at UT4_TA2.TElementoArbolBBTest.testTamaño(TElementoArbolBBTest.java:198)
+
+UT4_TA2.TElementoArbolBBTest.testEliminar()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "UT4_TA2.TElementoArbolBB.eliminar(java.lang.Comparable)" because "instance" is null
+	at UT4_TA2.TElementoArbolBBTest.testEliminar(TElementoArbolBBTest.java:213)
+
+UT4_TA2.TElementoArbolBBTest.testContarHojas()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "UT4_TA2.TElementoArbolBB.contarHojas()" because "instance" is null
+	at UT4_TA2.TElementoArbolBBTest.testContarHojas(TElementoArbolBBTest.java:227)
+
+UT4_TA2.TElementoArbolBBTest.testAltura()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "UT4_TA2.TElementoArbolBB.altura()" because "instance" is null
+	at UT4_TA2.TElementoArbolBBTest.testAltura(TElementoArbolBBTest.java:241)
+
+UT4_TA2.TElementoArbolBBTest.testNivelNodoABB()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NullPointerException: Cannot invoke "UT4_TA2.TElementoArbolBB.nivelNodoABB(java.lang.Comparable)" because "instance" is null
+	at UT4_TA2.TElementoArbolBBTest.testNivelNodoABB(TElementoArbolBBTest.java:256)
+
