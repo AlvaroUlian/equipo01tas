@@ -70,6 +70,7 @@ public interface IElementoAB<T> {
      * @return String conteniendo el InOrden
      */
     public String inOrden();
+    public void inOrden2(TLista<T> lista);
 
     /**
      * Imprime en postorden el arbol separado por guiones.

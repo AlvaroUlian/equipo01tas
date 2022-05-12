@@ -7,7 +7,7 @@ package UT4_TA2;
  *
  * @author anavalin
  */
-public class TLista {
+public class TLista<T> {
     TNodo primero;
     
    public TLista(){

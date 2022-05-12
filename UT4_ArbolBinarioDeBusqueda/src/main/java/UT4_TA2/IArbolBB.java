@@ -37,6 +37,7 @@ public interface IArbolBB<T> {
      * @return String conteniendo el preorden separado por guiones.
      */
     public String inOrden();
+    public void inOrden2(TLista lista);
 
     /**
      * Imprime en PostOrden los elementos del árbol, separados por guiones.

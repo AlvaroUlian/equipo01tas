@@ -104,17 +104,18 @@ public class TElementoArbolBB<T> implements IElementoAB<T>{
         return resultado;
     }
 
-    @Override
-    public String inOrden() {
-        String resultado = "";
-        if(this.getHijoIzq() != null){
-            resultado = resultado + getHijoIzq().inOrden();
+    
+    public void inOrden(TLista<T> lista) {
+        
+        if (izquierdo != null) {
+            izquierdo.inOrden(lista);
         }
-        resultado = resultado + this.getEtiqueta().toString() + "-";
-        if(this.getHijoDer() != null){
-            resultado = resultado + getHijoDer().inOrden();
+        TNodo<T> nodo = new TNodo(this.etiqueta, this.dato);
+        lista.insertar(nodo);
+        
+        if (derecho != null) {
+            derecho.inOrden(lista);
         }
-        return resultado;
     }
     @Override
     public TLista<T> inOrdenLista(TLista<T> lista) {

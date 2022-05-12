@@ -92,6 +92,20 @@ public class TArbolBBTest {
         assertEquals(elem.getDatos(), 5);
         
     }
+    
+    /**
+     * Test of buscar method, of class TArbolBB.
+     */
+    @Test
+    public void testInOrden() {
+        System.out.println("Test In-Orden");
+        setUp();
+        
+        IElementoAB<Integer> elem = arbol1.buscar(5);
+        assertEquals(elem,nodo5);
+        assertEquals(elem.getDatos(), 5);
+        
+    }
 
     
 }

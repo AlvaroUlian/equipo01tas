@@ -1,6 +1,6 @@
 package UT4_TA2;
 
-public class TNodo {
+public class TNodo<T> {
     Comparable etiqueta;
     TNodo siguiente;
     Object dato;
