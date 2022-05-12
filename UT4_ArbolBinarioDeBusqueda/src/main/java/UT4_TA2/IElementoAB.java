@@ -1,7 +1,10 @@
+
 package UT4_TA2;
 
 
 public interface IElementoAB<T> {
+    
+    public TLista<T> inOrdenLista(TLista<T> lista);
 
     /**
      * Obtiene el valor de la etiqueta del nodo.
