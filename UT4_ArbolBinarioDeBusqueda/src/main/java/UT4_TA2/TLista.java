@@ -6,9 +6,10 @@ package UT4_TA2;
 /**
  *
  * @author anavalin
+ * @param <T>
  */
 public class TLista<T> {
-    TNodo primero;
+    TNodo<T> primero;
     
    public TLista(){
         this.primero = null;
@@ -26,7 +27,7 @@ public class TLista<T> {
         else{primero = nuevoNodo;}
         
     }
-    public void insertar(Comparable etiqueta, Object objeto){
+    public void insertarFinal(Comparable etiqueta, Object objeto){
         TNodo nodo = new TNodo(etiqueta, objeto);
         
         if(esVacia()){primero = nodo;}
@@ -34,8 +35,8 @@ public class TLista<T> {
             TNodo actual = primero;
             while(actual.getSiguiente() != null){
                 actual = actual.getSiguiente();
-                nodo = actual.getSiguiente();
             }
+            actual.setSiguiente(nodo);
         }
     }
     

@@ -4,13 +4,6 @@ package UT4_TA2;
 
 public interface IElementoAB<T> {
     
-    public TLista<T> inOrdenLista(TLista<T> lista);
-
-    /**
-     * Obtiene el valor de la etiqueta del nodo.
-     *
-     * @return Etiqueta del nodo.
-     */
     public Comparable getEtiqueta();
 
     /**
@@ -67,11 +60,11 @@ public interface IElementoAB<T> {
     /**
      * Imprime en inorden el arbol separado por guiones.
      *
+     * @param lista
      * @return String conteniendo el InOrden
      */
-    public String inOrden();
-    public void inOrden2(TLista<T> lista);
-
+    public TLista<T> inOrden(TLista<T> lista);
+    
     /**
      * Imprime en postorden el arbol separado por guiones.
      *

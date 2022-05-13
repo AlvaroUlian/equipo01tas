@@ -7,6 +7,7 @@ package UT4_TA2;
 /**
  *
  * @author anavalin
+ * @param <T>
  */
 public class TElementoArbolBB<T> implements IElementoAB<T>{
     
@@ -104,34 +105,21 @@ public class TElementoArbolBB<T> implements IElementoAB<T>{
         return resultado;
     }
 
-    
-    public void inOrden(TLista<T> lista) {
+    @Override
+    public TLista<T> inOrden(TLista<T> lista) {
         
         if (izquierdo != null) {
-            izquierdo.inOrden(lista);
+            return izquierdo.inOrden(lista);
         }
         TNodo<T> nodo = new TNodo(this.etiqueta, this.dato);
-        lista.insertar(nodo);
+        lista.insertarDelante(nodo.etiqueta,nodo);
         
         if (derecho != null) {
             derecho.inOrden(lista);
         }
-    }
-    @Override
-    public TLista<T> inOrdenLista(TLista<T> lista) {
-        if (this.getHijoIzq() != null){
-            this.getHijoIzq().inOrden(lista);
-        }
-        
-        TNodoLista n = new TNodoLista(this.etiqueta,this.dato);
-        lista.insertar(n);
-        if (this.getHijoDer() != null){
-            this.getHijoDer().inOrden(lista);
-        }
         return lista;
     }
     
-
     @Override
     public String postOrden() {
         String resultado = "";
@@ -220,5 +208,5 @@ public class TElementoArbolBB<T> implements IElementoAB<T>{
             return -1;
         }      
     }
-    
+
 }
