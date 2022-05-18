@@ -53,7 +53,12 @@ public class Almacen implements IAlmacen {
 
     @Override
     public Producto buscarPorCodigo(Comparable clave) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (productos.buscar(clave) != null) {
+            return productos.buscar(clave).getDatos();
+        }else{
+        return null;
+        }
+        
     }
 
     @Override
