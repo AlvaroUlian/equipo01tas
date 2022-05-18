@@ -1,8 +1,7 @@
 package ucu.edu.uy.ta92022;
 
 
-import ucu.edu.uy.tda.TArbolBB;
-
+import ucu.edu.uy.tda.*;
 
 public class Almacen implements IAlmacen {
 
@@ -19,7 +18,7 @@ public class Almacen implements IAlmacen {
 
     @Override
     public void insertarProducto(Producto unProducto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        productos.insertar(new TElementoAB(unProducto.getEtiqueta(), unProducto));
     }
 
   
