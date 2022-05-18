@@ -1,0 +1,59 @@
+TArbol.Inorden() : lista
+
+PRECONDICIONES:
+No vemos precondiciones a detallar.
+
+POSTCONDICIONES:
+El método retornará una lista de tipo String con las etiquetas ordenadas de los nodos presentes
+
+LENGUAJE NATURAL:
+El método tomará el nodo raíz para comenzar. En caso de que la raíz sea nula, se retornará una lista vacía.
+	En caso en que la lista no esté vacía, el método irá recorriendo el árbol usando el método InOrder(hijo izquierdo, chequeo de nodo, hijo derecho).
+El método retornará una lista final con todos los nodos en InOrden.
+
+PSEUDOCODIGO:
+
+TArbol.Inorden() : TLista<T>
+
+COMIENZO
+TLista<T> listaAux <- new TLista()
+SI raiz = nulo
+		RETORNAR nulo
+SINO
+raiz.inorder(listaAux) 
+FIN SI
+RETORNAR listaAux
+FINAL
+ 
+TElementol.InOrden() : TLista
+
+LENGUAJE NATURAL
+El método tomará el hijo izquierdo para hacerle la llamada recursiva en él. .Si no existe, se agregará un nuevo nodo a una lista con los datos y etiqueta del nodo actual.
+Si tiene hijo derecho, se hará la llamada recursiva del inOrden(lista) en ese hijo.
+
+PRECONDICIONES:
+TElemento no puede recibir por parámetro una lista nula. Debe existir la instancia de esta lista.
+
+POSTCONDICIONES:
+El método retornará una lista de tipo String con las etiquetas ordenadas de los nodos presentes
+
+PSEUDOCÓDIGO:
+
+TElementoAB.Inorden(TLista<T> lista) 
+inOrden(lista : TLista<T>)
+COMIENZO
+si HI != nulo
+		HI.inOrden(lalista)
+	finsi
+	TNodoLista n = new TNodoLista(this.etq, this.dato)
+	lalista.insertar(n)
+	si HD != nulo
+		HI.inOrden(lalista)
+	finsi
+FIN
+
+c) 
+
+LENGUAJE NATURAL
+Creamos un árbol de raiz 2 e hijos 1 (izq) y 3 (der). Posteriormente aplicamos método inOrder del árbol que luego llamará a los inOrden de los métodos para obtener la lista inorden final.
+Se comprueba el método realizando assertEquals evaluando igualdad entre los valores de la lista obtenida y los elementos ordenados (sus etiquetas). Si la lista fue obtenida de forma correcta, los valores (1, 2, 3) de ella serán iguales a los de los elementos ordenados.

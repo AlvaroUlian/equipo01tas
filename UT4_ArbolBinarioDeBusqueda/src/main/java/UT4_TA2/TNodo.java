@@ -5,7 +5,7 @@ public class TNodo<T> {
     TNodo siguiente;
     Object dato;
     
-    public TNodo (Comparable etiqueta,Object nodo){
+    public <T> TNodo (Comparable etiqueta,Object nodo){
         this.etiqueta = etiqueta;
         this.dato = nodo;
     }

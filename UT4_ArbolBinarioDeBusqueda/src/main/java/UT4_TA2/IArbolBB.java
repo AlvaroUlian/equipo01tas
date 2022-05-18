@@ -34,20 +34,14 @@ public interface IArbolBB<T> {
     /**
      * Imprime en InOrden los elementos del árbol, separados por guiones.
      *
-     * @return String conteniendo el preorden separado por guiones.
+     * @return TLista<T> conteniendo el preorden separado por guiones.
      */
-    public String inOrden();
-    public void inOrden2(TLista lista);
-
-    /**
-     * Imprime en PostOrden los elementos del árbol, separados por guiones.
-     *
-     * @return String conteniendo el preorden separado por guiones.
-     */
+    public TLista<T> inOrden();
+    
     public String postOrden();
 
    
-       /**
+     /**
      * Elimina un elemento dada una etiqueta.
      * @param unaEtiqueta 
      */

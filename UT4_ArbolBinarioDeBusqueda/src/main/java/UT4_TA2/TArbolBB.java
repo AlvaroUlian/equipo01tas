@@ -45,11 +45,11 @@ public class TArbolBB<T> implements IArbolBB<T>{
     }
 
     @Override
-    public String inOrden() {
-        if(this.raiz == null){
-            return null;
+    public TLista<T> inOrden() {
+        if(raiz == null){
+            return new <T>TLista();
         } else{
-            return this.raiz.inOrden();
+            return raiz.inOrden(new <T>TLista());
         }
     }
 
@@ -62,6 +62,7 @@ public class TArbolBB<T> implements IArbolBB<T>{
         }
     }
     
+    @Override
     public int tamaño() {
         if (raiz != null){
             return raiz.tamaño();
@@ -98,6 +99,5 @@ public class TArbolBB<T> implements IArbolBB<T>{
             return this.raiz.nivelNodoABB(unaEtiqueta);
         }
     }
-    
-    
+
 }
