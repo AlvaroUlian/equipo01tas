@@ -33,8 +33,7 @@ public class Almacen implements IAlmacen {
         if(productos.buscar(clave) != null){
             IElementoAB<Producto> elem = productos.buscar(clave);  //buscamos producto el arbol de productos usando clave
             Producto dato = elem.getDatos();     // del Nodo encontrado en el arbol de prodcutos, obtenemos el Dato que es el Producto
-            int stockActual = dato.getStock();    // obtenemos el stock al momento de ese Producto
-            dato.setStock(stockActual + cantidad);     // sumamos stock
+            dato.agergarStock(cantidad);
             return true;
         }else{
             //Si el producto no existe en el arbol de Productos, lo agregamos con su stock
@@ -48,7 +47,12 @@ public class Almacen implements IAlmacen {
 
     @Override
     public Integer restarStock(Comparable clave, Integer cantidad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (productos.buscar(clave) != null) {
+            IElementoAB<Producto> elem = productos.buscar(clave);
+            Producto dato = elem.getDatos();     // del Nodo encontrado en el arbol de prodcutos, obtenemos el Dato que es el Producto
+            return dato.restarStock(cantidad);
+        }else{
+        return 0;}
     }
 
     @Override
@@ -63,7 +67,10 @@ public class Almacen implements IAlmacen {
 
     @Override
     public boolean eliminarProducto(Comparable clave) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (productos.buscar(clave) != null) {
+            productos.eliminar(clave);
+            return true;
+        }else{return false;}
     }
 
 
