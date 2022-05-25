@@ -1,0 +1,9 @@
+9.7.1 ,0130007325,Electric Parts - HCV,2,302
+9.6.3 ,1136201043,Comfort Parts,9,1181
+9.6.1 ,0189999110,Terminals Fuses and Cables,9,28
+9.5.1 ,0130002211,Cooling Systems,9,826
+9.4.1 ,0320223002,Horns and Fanfares,10,184
+9.3.1 ,0130002525,Wiper and Electronic Motors,3,154
+9.2.1 ,0332002150,Relays,5,99
+9.1.2 ,0354120003,Connectors,9,258
+9.1.1 ,0332400002,Switches,8,117
