@@ -8,7 +8,8 @@ public class Almacen implements IAlmacen {
     private String nombre;
     private String direccion;
     private String telefono;
-
+    private int stockTotal;
+    
     private TArbolBB<Producto> productos;
 
     public Almacen(String nombre) {
@@ -20,8 +21,6 @@ public class Almacen implements IAlmacen {
     public void insertarProducto(Producto unProducto) {
         productos.insertar(new TElementoAB(unProducto.getEtiqueta(), unProducto));
     }
-
-  
 
     @Override
     public String imprimirProductos() {
