@@ -71,7 +71,7 @@ public class CalculadorMatricesOptimo implements ICalculadorMatricesOptimo
             R[i][j] = raiz;
         }
         
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
         //int i, j, k, kraiz, h;
         //int min, PesoSubArboles;
 
@@ -89,7 +89,7 @@ public class CalculadorMatricesOptimo implements ICalculadorMatricesOptimo
         
         /**
      *
-     * @param i
+     * @param i - 
      * @param j
      * @param Claves
      * @param elArbolBB
@@ -103,7 +103,7 @@ public class CalculadorMatricesOptimo implements ICalculadorMatricesOptimo
     @Override
     public void armarArbolBinario(int i, int j, String[] Claves, IArbolBB elArbolBB)
     {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
 
     public static void imprimirMatriz(int[][] matriz)
