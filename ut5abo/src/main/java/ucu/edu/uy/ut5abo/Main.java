@@ -23,6 +23,8 @@ public class Main
     {
         IArbolBB arbol = new TArbolBB();
         String[] claves;
+        String[] frecExito;
+        String[] frecNoExito;
         
         String[] archivo = ManejadorArchivosGenerico.leerArchivo("palabras.txt");
         
@@ -31,6 +33,7 @@ public class Main
             x
             //claves += auxLinea[0];
             IElementoAB elem = new TElementoAB(auxLinea[0], auxLinea[0]);  //???????
+            //llenar frecExito y frecNoExito !!!!
             arbol.insertar(elem);
         }
         
