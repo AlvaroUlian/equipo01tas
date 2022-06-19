@@ -25,68 +25,98 @@ public class CalculadorMatricesOptimo implements ICalculadorMatricesOptimo
     @Override
     public void encontrarOptimo(int cantElem, int[] frecExito, int[] frecNoExito)
     {
-        //Integer[][] w = new Integer[cantElem][cantElem];
-        //Integer[][] p = new Integer[cantElem][cantElem];
-        
+        //int i, j, k, kraiz, h;
+        //int min, PesoSubArboles;
         int i;
-        int min = Integer.MAX_VALUE;
-        int raiz;
-        
-        
+        int j;
+        int h;
+        int min = Integer.MAX_VALUE; //Máximo calor posible para un entero
+        int kraiz = 0;
+          
         // wii = bii y pii = wii
         
         for(i=0;i<=cantElem;i++){  // Completamos diagonales de Matriz W y Matriz P.
             W[i][i] = frecNoExito[i];
             P[i][i] = frecNoExito[i];
         }
-        
-        
-        for(i=0;i <= cantElem;i++){ // Completa la Matriz W
-            for(int j = 1;j<=cantElem;j++){
-                W[i][j] = W[i][j-1] + frecExito[j] + frecNoExito[j];
-            }
-        }
-        
-        for(i=0;i <= cantElem;i++){ // Completa la segunda diagonal de P
-            int j = i + 1;
-            P[i][j] = P[i][i] + P[j][j];
-            }
-        
-        //Para h >= 2 hasta h = n
-        for(int h = 2; h < cantElem +1; h++) {
-            int j = 0;
-            raiz = 0;
-
-            for (int l = 0; l < cantElem -h+1; l++) {
-                j = h + 1;
-                for (int k = l+1; k < j+1; k++) {
-                    int peso = P[i][k-1] + P[k][j];
-                    if (peso <= min) {
-                        min = peso;
-                        raiz = k;
-                    }
-                }
-            }
-            P[i][j] = min + W[i][j];
-            R[i][j] = raiz;
-        }
-        
-        
-        //int i, j, k, kraiz, h;
-        //int min, PesoSubArboles;
-
-        
+        System.out.println("Se completa la diagon de W y P.");
+        imprimirMatriz(W);
+        imprimirMatriz(P);
+        System.out.println("--------------------------------\n");
         
         
         // wij = wii+ aj + bj
-        
+
+        for(i=0;i <= cantElem;i++){ // Completa la Matriz W
+            for(j=i+1;j<=cantElem;j++){
+                W[i][j] = W[i][j-1] + frecExito[j] + frecNoExito[j];
+            }
+        }
+        System.out.println("Se completa MATRIZ W.");
+        imprimirMatriz(W);
+        System.out.println("--------------------------------\n");
         
         // h = 1 pij = wij + pii + pjj
+        for(i=0;i < cantElem;i++){ // Completa la segunda diagonal de P
+            P[i][i+1] = W[i][i+1] + P[i][i] + P[i+1][i+1];
+            kraiz += 1;
+            R[i][i+1] = kraiz;
+            }
+        System.out.println("Se completa la segunda diagonal de MATRIZ P.");
+        imprimirMatriz(P);
+        System.out.println("--------------------------------\n");
         
+        //Para h >= 2 hasta h = n
+        for(h = 2; h <= cantElem; h++) {
+            System.out.println("--------------------------------");
+            System.out.println("1ER FOR --> h: 2 HASTA 4");
+            System.out.println("h "+h);
+            System.out.println("--------------------------------\n");
+            kraiz = 0;
+            j = h;
+            for (i = 0; i <= cantElem - h; i++) {
+                
+                System.out.println("--------------------------------");
+                System.out.println("2DO FOR --> i: 0 HASTA 4-h, h="+h);
+                System.out.println("i "+i);
+                System.out.println("--------------------------------\n");
+                for (int k = i+1; k <= j; k++) {
+                    System.out.println("--------------------------------");
+                    System.out.println("3ER FOR --> k: i+1, i="+i+" HASTA k=j, j="+j);
+                    System.out.println("i "+i);
+                    System.out.println("j "+j);
+                    System.out.println("k "+k);
+                    System.out.println("P[i][k-1] "+P[i][k-1]+"  P[k][j] "+P[k][j]);
+                    System.out.println("--------------------------------\n");
+                    
+                    int peso = P[i][k-1] + P[k][j];
+                    if (peso <= min) {
+                        min = peso;
+                        kraiz = k;
+                    }
+                    
+                }
+                System.out.println("--------------------------------");
+                System.out.println("EL MINIMO ES: "+min);
+                System.out.println("MATRIZ P: ("+i+","+j+")");
+                System.out.println("W[i][j] + min: "+W[i][j]+"+"+min);
+                System.out.println("--------------------------------\n");
+                
+                P[i][j] = min + W[i][j];
+                R[i][j] = kraiz;
+                min = Integer.MAX_VALUE;
+                j++;
+                kraiz = 0;
+                          
+            }
+            
+        }
         
-        // h = 2 hasta h = n
-        //kraiz = 0;
-        
+        System.out.println("Se completa la MATRIZ P y R.");
+        imprimirMatriz(P);
+        imprimirMatriz(R);
+        System.out.println("--------------------------------\n");
+              
         /**
      *
      * @param i - 
@@ -97,15 +127,19 @@ public class CalculadorMatricesOptimo implements ICalculadorMatricesOptimo
         
     }
      
-      
-
-    
-    @Override
-    public void armarArbolBinario(int i, int j, String[] Claves, IArbolBB elArbolBB)
+    public void armarArbolBinario(int cantElem,String[] claves, IArbolBB elArbolBB)
     {
-        
+        /*
+        int raiz;
+        if (i < j){ 
+            raiz = R[i][j];
+            elArbolBB.insertar(claves[raíz]);
+            armarArbol(claves, laMatrizR, i, raíz-1)
+            armarArbol(claves, laMatrizR, raíz, j)
+            
+        }
+        */
     }
-
     public static void imprimirMatriz(int[][] matriz)
     {
         System.out.println();
