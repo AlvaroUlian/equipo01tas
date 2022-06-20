@@ -16,20 +16,22 @@ import ucu.edu.uy.util.ManejadorArchivosGenerico;
  *
  * @author nnavarro
  */
-public class Ut5abo
-{
+public class Ut5abo{
 
     public static void main(String[] args)
     {
         
-        
         String[] palabras = ManejadorArchivosGenerico.leerArchivo("palabras2.txt");
         String[] noPalabras = ManejadorArchivosGenerico.leerArchivo("nopalabras2.txt");
+        TArbolBB arbol = new TArbolBB();
+        
         int cantElem = palabras.length;
         String[] claves = new String[cantElem+1];
+        
         for (int clave = 0; clave<=cantElem; clave++){
             claves[clave] = Integer.toString(clave);
         }
+        
         int[] frecExito = new int[cantElem+1];
         int[] frecNoExito = new int[cantElem+1];
 
@@ -38,6 +40,7 @@ public class Ut5abo
                 frecExito[index] = Integer.parseInt(palabra.split(" ")[1]);
                 index++;
         }
+        
         index = 0;
         for (String noPalabra : noPalabras){
                 frecNoExito[index] = Integer.parseInt(noPalabra);
@@ -62,10 +65,26 @@ public class Ut5abo
         frecNoExito[4]=7;
         */
         
+        //Insertar en Arbol BB
+        for (String linea : palabras) {
+            String[] auxLinea = linea.split(",");
+            IElementoAB elemento = new TElementoAB(auxLinea[0], auxLinea[0]);
+            arbol.insertar(elemento);
+        }
+        
+        
+        //armar arbol optimo
+        IArbolBB arbolOptimo = new TArbolBB();
         
         CalculadorMatricesOptimo calMatOpt_1 = new CalculadorMatricesOptimo(cantElem);
         calMatOpt_1.encontrarOptimo(cantElem, frecExito, frecNoExito);
-        IArbolBB arbolOptimo = new TArbolBB();
-        calMatOpt_1.armarArbolBinario(cantElem, claves, arbolOptimo);
+        calMatOpt_1.armarArbolBinario(0,cantElem, claves, arbolOptimo);
+        
+        //Probar listaDatosNivelMasProfundo
+        arbol.listaDatosNivelMasProfundo();
+        
+        //Probar Lti
+        arbol.Lti();
+        
     }
 }

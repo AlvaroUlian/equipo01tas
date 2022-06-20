@@ -195,6 +195,13 @@ public class TArbolBB<T> implements IArbolBB<T>
         return claves;
     }
     
-     
+    public int Lti(){
+        
+        int nivel = 1;
+	if (raiz == null){
+            return 0;
+        }
+	return this.raiz.Lti(nivel);
+    }
 
 }

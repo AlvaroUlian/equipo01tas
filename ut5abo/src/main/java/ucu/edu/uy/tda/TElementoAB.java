@@ -351,5 +351,24 @@ public class TElementoAB<T> implements IElementoAB<T>
             claves.insertar(new Nodo(this.getEtiqueta(), this.getDatos()));
         }
     }
+    
+    @Override
+    public int Lti(int nivel){
+        
+        int nivelIzq = 0;
+	int nivelDer = 0;
+	if (this.hijoIzq != null){
+            
+            nivelIzq = this.hijoIzq.Lti(nivel + 1);
+            
+        }
+        if (this.hijoDer != null){
+            
+            nivelDer = this.hijoDer.Lti(nivel + 1);
+            
+        }
+	
+	return nivelIzq + nivelDer + nivel;
+    }
 
 }
