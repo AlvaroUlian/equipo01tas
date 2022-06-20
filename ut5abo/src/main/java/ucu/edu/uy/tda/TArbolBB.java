@@ -172,8 +172,7 @@ public class TArbolBB<T> implements IArbolBB<T>
     }
 
     @Override
-    public long calcularCosto(int[] frecExito, int[] frecNoExito)
-    {
+    public long calcularCosto(int[] frecExito, int[] frecNoExito){
         if (this.esVacio()) {
             return -1;
         }else{
@@ -183,6 +182,17 @@ public class TArbolBB<T> implements IArbolBB<T>
             return this.raiz.calcularCosto(frecExito, frecNoExito, indiceFE, indiceFNE, nivel);
 
         } 
+    }
+    
+    public Lista listaDatosNivelMasProfundo(){
+        Lista claves = new Lista();
+        claves.setPrimero(new Nodo(this.raiz.getEtiqueta(), this.raiz.getDatos()));
+        if (esVacio()) {
+            return claves;
+        }else{
+            this.raiz.listaDatosNivelMasProfundo(this.altura(), claves);
+        }
+        return claves;
     }
     
      
