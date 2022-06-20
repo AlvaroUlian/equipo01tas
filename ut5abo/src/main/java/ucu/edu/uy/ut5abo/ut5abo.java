@@ -16,7 +16,7 @@ import ucu.edu.uy.util.ManejadorArchivosGenerico;
  *
  * @author nnavarro
  */
-public class Ut5abo{
+public class ut5abo{
 
     public static void main(String[] args)
     {
