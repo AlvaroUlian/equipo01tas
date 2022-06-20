@@ -4,6 +4,8 @@
  */
 package ucu.edu.uy.ut5abo;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import ucu.edu.uy.tda.IArbolBB;
 import ucu.edu.uy.tda.INodo;
 import ucu.edu.uy.tda.Lista;
@@ -21,8 +23,8 @@ public class ut5abo{
     public static void main(String[] args)
     {
         
-        String[] palabras = ManejadorArchivosGenerico.leerArchivo("palabras2.txt");
-        String[] noPalabras = ManejadorArchivosGenerico.leerArchivo("nopalabras2.txt");
+        String[] palabras = ManejadorArchivosGenerico.leerArchivo("palabras.txt");
+        String[] noPalabras = ManejadorArchivosGenerico.leerArchivo("nopalabras.txt");
         TArbolBB arbol = new TArbolBB();
         
         int cantElem = palabras.length;
@@ -65,6 +67,14 @@ public class ut5abo{
         frecNoExito[4]=7;
         */
         
+        //UT5_TA15
+        //Shuffle de claves
+        ArrayList arrayClaves = new ArrayList();
+        for (String elementos : claves) {
+            arrayClaves.add(elementos);
+        }
+        Collections.shuffle(arrayClaves);
+        
         //Insertar en Arbol BB
         for (String linea : palabras) {
             String[] auxLinea = linea.split(",");
@@ -80,11 +90,16 @@ public class ut5abo{
         calMatOpt_1.encontrarOptimo(cantElem, frecExito, frecNoExito);
         calMatOpt_1.armarArbolBinario(0,cantElem, claves, arbolOptimo);
         
+        
+        
         //Probar listaDatosNivelMasProfundo
-        arbol.listaDatosNivelMasProfundo();
+        System.out.println("Lista de Datos Nivel mas Profundo:");
+        arbol.listaDatosNivelMasProfundo().imprimir();
+        System.out.println("-------------");
         
         //Probar Lti
-        arbol.Lti();
-        
+        System.out.println("Longitud de Trayectoria Interna:");
+        System.out.println(arbol.Lti());
+        System.out.println("-------------");
     }
 }
