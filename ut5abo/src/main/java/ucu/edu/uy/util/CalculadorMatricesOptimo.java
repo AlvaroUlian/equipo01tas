@@ -126,15 +126,14 @@ public class CalculadorMatricesOptimo implements ICalculadorMatricesOptimo{
         
     }
     
-    @Override
-    public void armarArbolBinario(int i, int j,String[] claves, IArbolBB elArbolBB)
-    {
+    
+    public void armarArbolBinario(int i, int j, TElementoAB[] elementos, IArbolBB elArbolBB ) {
         int unaraiz;
         if (i < j) {
             unaraiz = R[i][j];
-            elArbolBB.insertar(claves[unaraiz].clonar());
-            armarArbolBinario(i, unaraiz-1, claves, elArbolBB);
-            armarArbolBinario(unaraiz, j, claves, elArbolBB);
+            elArbolBB.insertar(elementos[unaraiz].clonar());
+            armarArbolBinario(i, unaraiz-1, elementos, elArbolBB);
+            armarArbolBinario(unaraiz, j, elementos, elArbolBB);
         }
     }
     
@@ -165,6 +164,11 @@ public class CalculadorMatricesOptimo implements ICalculadorMatricesOptimo{
     public void printP()
     {
         imprimirMatriz(P);
+    }
+
+    @Override
+    public void armarArbolBinario(int i, int j, String[] claves, IArbolBB elArbolBB) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
