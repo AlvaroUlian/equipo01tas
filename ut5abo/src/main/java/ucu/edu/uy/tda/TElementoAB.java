@@ -29,6 +29,10 @@ public class TElementoAB<T> implements IElementoAB<T>
     {
         return hijoDer;
     }
+    
+    public TElementoAB clonar(){
+         return new TElementoAB<>(this.etiqueta, this.datos);
+    }
 
     /**
      * @param unElemento

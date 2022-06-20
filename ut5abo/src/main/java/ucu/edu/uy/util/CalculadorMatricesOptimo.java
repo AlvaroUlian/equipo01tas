@@ -8,8 +8,7 @@ import ucu.edu.uy.tda.TElementoAB;
  *
  * @author Ernesto
  */
-public class CalculadorMatricesOptimo implements ICalculadorMatricesOptimo
-{
+public class CalculadorMatricesOptimo implements ICalculadorMatricesOptimo{
 
     public final int[][] W;
     public final int[][] P;
@@ -126,20 +125,19 @@ public class CalculadorMatricesOptimo implements ICalculadorMatricesOptimo
      */
         
     }
-     
-    public void armarArbolBinario(int cantElem,String[] claves, IArbolBB elArbolBB)
+    
+    @Override
+    public void armarArbolBinario(int i, int j,String[] claves, IArbolBB elArbolBB)
     {
-        /*
-        int raiz;
-        if (i < j){ 
-            raiz = R[i][j];
-            elArbolBB.insertar(claves[raíz]);
-            armarArbol(claves, laMatrizR, i, raíz-1)
-            armarArbol(claves, laMatrizR, raíz, j)
-            
+        int unaraiz;
+        if (i < j) {
+            unaraiz = R[i][j];
+            elArbolBB.insertar(claves[unaraiz].clonar());
+            armarArbolBinario(i, unaraiz-1, claves, elArbolBB);
+            armarArbolBinario(unaraiz, j, claves, elArbolBB);
         }
-        */
     }
+    
     public static void imprimirMatriz(int[][] matriz)
     {
         System.out.println();
@@ -168,4 +166,5 @@ public class CalculadorMatricesOptimo implements ICalculadorMatricesOptimo
     {
         imprimirMatriz(P);
     }
+
 }

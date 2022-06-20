@@ -182,9 +182,9 @@ public class TArbolBB<T> implements IArbolBB<T>
             int[] indiceFE = new int[]{1};
             return this.raiz.calcularCosto(frecExito, frecNoExito, indiceFE, indiceFNE, nivel);
 
-        }
-        
-
+        } 
     }
+    
+     
 
 }
