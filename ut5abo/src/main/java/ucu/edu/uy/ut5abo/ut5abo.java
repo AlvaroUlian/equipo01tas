@@ -18,14 +18,14 @@ import ucu.edu.uy.util.ManejadorArchivosGenerico;
  *
  * @author nnavarro
  */
-public class ut5abo{
+public class Ut5abo{
 
     public static void main(String[] args)
     {
         
-        String[] palabras = ManejadorArchivosGenerico.leerArchivo("palabras.txt");
-        String[] noPalabras = ManejadorArchivosGenerico.leerArchivo("nopalabras.txt");
-        TArbolBB arbol = new TArbolBB();
+        String[] palabras = ManejadorArchivosGenerico.leerArchivo("palabras2.txt");
+        String[] noPalabras = ManejadorArchivosGenerico.leerArchivo("nopalabras2.txt");
+        
         
         int cantElem = palabras.length;
         String[] claves = new String[cantElem+1];
@@ -70,36 +70,51 @@ public class ut5abo{
         //UT5_TA15
         //Shuffle de claves
         ArrayList arrayClaves = new ArrayList();
-        for (String elementos : claves) {
-            arrayClaves.add(elementos);
+        for (String clave : claves) {
+            arrayClaves.add(clave); 
         }
         Collections.shuffle(arrayClaves);
         
         //Insertar en Arbol BB
+        TArbolBB arbol = new TArbolBB();
         for (String linea : palabras) {
             String[] auxLinea = linea.split(",");
             IElementoAB elemento = new TElementoAB(auxLinea[0], auxLinea[0]);
             arbol.insertar(elemento);
         }
         
-        
+        System.out.println("Longitud de Trayectoria Interna ABB NO OPTIMO:");
+        arbol.calcularCosto(frecExito, frecNoExito);
+        arbol.listaDatosNivelMasProfundo();
+        System.out.println(arbol.Lti());
         //armar arbol optimo
-        IArbolBB arbolOptimo = new TArbolBB();
+        TArbolBB arbolOptimo = new TArbolBB();
         
         CalculadorMatricesOptimo calMatOpt_1 = new CalculadorMatricesOptimo(cantElem);
         calMatOpt_1.encontrarOptimo(cantElem, frecExito, frecNoExito);
         calMatOpt_1.armarArbolBinario(0,cantElem, claves, arbolOptimo);
         
-        
+        //COSTO ABB OPTIMO
+        System.out.println("COSTO ABB OPTIMO: "+arbolOptimo.calcularCosto(frecExito, frecNoExito));
+        //COSTO ABB NO OPTIMO
+        System.out.println("COSTO ABB NO OPTIMO: "+arbol.calcularCosto(frecExito, frecNoExito));
         
         //Probar listaDatosNivelMasProfundo
-        System.out.println("Lista de Datos Nivel mas Profundo:");
+        System.out.println("Lista de Datos Nivel mas Profundo ABB OPTIMO:");
+        arbolOptimo.listaDatosNivelMasProfundo().imprimir();
+        System.out.println("-------------");
+
+        System.out.println("Lista de Datos Nivel mas Profundo ABB NO OPTIMO:");
         arbol.listaDatosNivelMasProfundo().imprimir();
         System.out.println("-------------");
         
         //Probar Lti
-        System.out.println("Longitud de Trayectoria Interna:");
+        System.out.println("Longitud de Trayectoria Interna ABB NO OPTIMO:");
         System.out.println(arbol.Lti());
+        System.out.println("-------------");
+        
+        System.out.println("Longitud de Trayectoria Interna ABB OPTIMO:");
+        System.out.println(arbolOptimo.Lti());
         System.out.println("-------------");
     }
 }

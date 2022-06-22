@@ -100,5 +100,7 @@ public interface IArbolBB<T> {
      * @return
      */
     public long calcularCosto(int[] frecExito, int[] frecNoExito);
+
+    public Object listaDatosNivelMasProfundo();
 }
 

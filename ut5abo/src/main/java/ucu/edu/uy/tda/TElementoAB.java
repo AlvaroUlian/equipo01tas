@@ -7,6 +7,7 @@ public class TElementoAB<T> implements IElementoAB<T>
     private IElementoAB hijoIzq;
     private IElementoAB hijoDer;
     private T datos;
+    private int costo;
 
     /**
      * @param unaEtiqueta
@@ -16,6 +17,13 @@ public class TElementoAB<T> implements IElementoAB<T>
     {
         etiqueta = unaEtiqueta;
         datos = unosDatos;
+    }
+    public int getCosto(){
+        return this.costo;
+    }
+
+    public void setCosto(int costo){
+        this.costo = costo;
     }
 
     @Override
@@ -174,7 +182,7 @@ public class TElementoAB<T> implements IElementoAB<T>
      */
     public String imprimir()
     {
-        return (etiqueta.toString());
+        return (etiqueta.toString()+costo);
     }
 
     @Override
@@ -317,6 +325,7 @@ public class TElementoAB<T> implements IElementoAB<T>
     @Override
     public long calcularCosto(int[] frecExito, int[] frecNoExito, int[] indiceFE, int[] indiceFNE, int nivel)
     {
+        this.setCosto(nivel);
         int costo = 0;
         if (this.hijoIzq != null) {
             costo += this.hijoIzq.calcularCosto(frecExito, frecNoExito, indiceFE, indiceFNE, nivel + 1);
@@ -326,7 +335,7 @@ public class TElementoAB<T> implements IElementoAB<T>
 
         }
         
-        costo += frecExito[indiceFE[0]] * nivel;
+        costo += frecExito[indiceFE[0]] * (nivel+1);
         indiceFE[0]++;
         
         if (this.hijoDer != null) {
