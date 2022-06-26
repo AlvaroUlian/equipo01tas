@@ -214,7 +214,7 @@ public class TArbolBB<T> implements IArbolBB<T>
     @Override
     public void completaVectores(Comparable[] claves, int[] frecExito, int[] frecNoExito){
         if (this.getRaiz() != null){
-            this.raiz.completaVectores(Comparable[] claves, int[] frecExito, int[] frecNoExito);
+            this.raiz.completaVectores(claves, frecExito, frecNoExito, new int[] {0}, new int[] {0}); //
         }
     }
 

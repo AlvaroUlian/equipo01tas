@@ -21,14 +21,21 @@ public class TElementoAB<T> implements IElementoAB<T>
         etiqueta = unaEtiqueta;
         datos = unosDatos;
     }
+    @Override
     public int getCosto(){
         return this.costo;
     }
-
+    
+    @Override
     public void setCosto(int costo){
         this.costo = costo;
     }
-
+    
+    @Override
+    public int getFrecExito(){
+        return this.frecExito;        
+    }
+    
     @Override
     public IElementoAB<T> getHijoIzq()
     {
@@ -335,7 +342,6 @@ public class TElementoAB<T> implements IElementoAB<T>
         }else{
             costo += frecNoExito[indiceFNE[0]] * nivel;
             indiceFNE[0]++;
-
         }
         
         costo += frecExito[indiceFE[0]] * (nivel+1);
@@ -385,23 +391,63 @@ public class TElementoAB<T> implements IElementoAB<T>
     
     @Override
     public void cuentaFrec(Comparable unArgumento){
+        System.out.println("\n");
+        System.out.println("PALABRA QUE BUSCO : "+unArgumento);
+        System.out.println("PALABRA DEL ARBOL : "+this.getEtiqueta());
         if (this.getEtiqueta().compareTo(unArgumento) == 0){
             this.frecExito++;
-            return;
+            System.out.println("PALABRA DEL ARBOL ENCONTRADA : "+this.getEtiqueta());
         }
-        if (this.getEtiqueta().compareTo(unArgumento) < 0){
-            if (this.getHijoIzq() != null){
-                this.getHijoIzq().cuentaFrec(unArgumento);
-            }else{
-                this.frecNoExIzq++;
+        else{
+            if (this.getEtiqueta().compareTo(unArgumento) > 0){
+                System.out.println("PALABRA QUE BUSCO ES MENOR : "+unArgumento+" < "+this.getEtiqueta());
+                if (this.getHijoIzq() != null){
+                    System.out.println("HAY ALGO A LA IZQUIERDA, AVANZO");
+                    this.getHijoIzq().cuentaFrec(unArgumento);
+                }else{
+                    System.out.println("NO HAY MAS NADA A LA IZQUIERDA DE : "+this.getEtiqueta()+", INCREMENTA FrecNoExIzq "+this.frecNoExIzq+" +1");
+                    this.frecNoExIzq++;
+                }
+            }
+            if (this.getEtiqueta().compareTo(unArgumento) < 0){
+                System.out.println("PALABRA QUE BUSCO ES MAYOR : "+unArgumento+" > "+this.getEtiqueta());
+                if (this.getHijoDer() != null){
+                    System.out.println("HAY ALGO A LA DERECHA, AVANZO");
+                    this.getHijoDer().cuentaFrec(unArgumento);
+                }else{
+                    System.out.println("NO HAY MAS NADA A LA DERECHA DE : "+this.getEtiqueta()+", INCREMENTA FrecNoExDer "+this.frecNoExDer+" +1");
+                    this.frecNoExDer++;
+                }
             }
         }
-        if (this.getEtiqueta().compareTo(unArgumento) > 0){
-            if (this.getHijoDer() != null){
-                this.getHijoIzq().cuentaFrec(unArgumento);
-            }else{
-                this.frecNoExDer++;
-            }
+    }
+    @Override
+    public void completaVectores(Comparable[] claves, int[] frecExito, int[] frecNoExito, int[] indiceFE, int[] indiceFNE){
+        indiceFNE[0]++;
+        indiceFE[0]++;
+        //System.out.println("RECORRIENDO :"+this.getEtiqueta());
+        
+        if (this.getHijoIzq() != null){
+            //System.out.println("AVANZA");
+            this.getHijoIzq().completaVectores(claves, frecExito, frecNoExito, indiceFE, indiceFNE);
+        }else{
+            //System.out.println("AL QUE LE EXTRAIGO FREC NO EXITO IZQUIERDO :"+this.getEtiqueta());
+            frecNoExito[indiceFNE[0]] += this.frecNoExIzq;
+            //System.out.println("FINAL indiceFNE[0] "+indiceFNE[0]);
         }
+        
+        frecExito[indiceFE[0]] = this.frecExito;
+        
+        //System.out.println("FINAL indiceFE[0] "+indiceFE[0]);
+        
+        if (this.getHijoDer() != null){
+            this.getHijoDer().completaVectores(claves, frecExito, frecNoExito, indiceFE, indiceFNE);
+        }else{
+            //System.out.println("AL QUE LE EXTRAIGO FREC NO EXITO DERECHO :"+this.getEtiqueta());
+            frecNoExito[indiceFNE[0]] += this.frecNoExDer;
+            //System.out.println("FINAL indiceFNE[0] "+indiceFNE[0]);
+        }
+        
+            
     }
 }

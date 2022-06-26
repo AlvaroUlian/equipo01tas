@@ -104,5 +104,7 @@ public interface IArbolBB<T> {
     public Object listaDatosNivelMasProfundo();
     
     public void cuentaFrec(Comparable unArgumento);
+    
+    public void completaVectores(Comparable[] claves, int[] frecExito, int[] frecNoExito);
 }
 

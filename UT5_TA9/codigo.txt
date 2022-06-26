@@ -3,6 +3,8 @@ package ucu.edu.uy.tda;
 public class TArbolBB<T> implements IArbolBB<T>
 {
 
+	abstract
+
     private IElementoAB<T> raiz;
 
     /**

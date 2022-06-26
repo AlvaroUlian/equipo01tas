@@ -22,22 +22,58 @@ public class UT5_TA9{
 
     public static void main(String[] args)
     {
+        //ARMADO DE ARBOL CON LAS PALABRAS CLAVES
         TArbolBB arbolPalabrasClave = new TArbolBB();        
-        String[] palabrasClave = ManejadorArchivosGenerico.leerArchivo("palabras.txt");
+        String[] palabrasClave = ManejadorArchivosGenerico.leerArchivo("palabras2.txt");
         for (String palabra : palabrasClave){
-            
+            //System.out.println(palabra.split(" ")[0]);
             IElementoAB elementoPalabraClave = new TElementoAB(palabra.split(" ")[0],null);
             arbolPalabrasClave.insertar(elementoPalabraClave);
-            
         }
         ILista<TElementoAB> listaElementosPalabrasClave = arbolPalabrasClave.inOrden();
-        System.out.println(listaElementosPalabrasClave.imprimir(","));
+        //System.out.println(listaElementosPalabrasClave.imprimir("\n"));
         
-        Comparable[] claves = new Comparable[arbolPalabrasClave.tamanio()]; //50 ELEMENOTS EN ESTE ARBOL
-        int[] frecExito = new int[arbolPalabrasClave.tamanio()];
-        int[] frecNoExito = new int[arbolPalabrasClave.tamanio()];
+        //MODIFICANDO FRECUENCIAS DE LAS PALABRAS CLAVE CON EL TXT DE CODIGO
+        String[] codigo = ManejadorArchivosGenerico.leerArchivo("codigo.txt");
+        for (String linea : codigo) {
+            if (!"".equals(linea)){
+                String[] palabras = linea.split(" ");
+                for (String palabra : palabras){
+                    if (!"".equals(palabra)){
+                        //System.out.println("PALABRA DEL CODIGO : "+palabra);
+                        arbolPalabrasClave.cuentaFrec(palabra.trim()); //MODIFICA LOS PARAMETROS FRECUENCIA DEL ELEMENTO
+                    }
+                }
+            }
+        }
+        IElementoAB elemento = arbolPalabrasClave.buscar("abstract");
+        //System.out.println("ETIQUETA : "+elemento.getEtiqueta().toString()+"PARAMETRO FREC_EX : "+elemento.getFrecExito());
         
-        /* 
+        //50 ELEMENOTOS EN ESTE ARBOL, LOS ARRAYS SERAN DE TAMAÑO DEL ARBOL + 1
+        Comparable[] claves = new Comparable[arbolPalabrasClave.tamanio()]; 
+        int[] frecExito = new int[arbolPalabrasClave.tamanio()+1];
+        frecExito[0] = -1;
+        int[] frecNoExito = new int[arbolPalabrasClave.tamanio()+1];
+        frecNoExito[0] = 1;
+        //VECTOR SE LLENARA CON LAS FRECUENCIAS DE LOS ELEMENTOS
+        arbolPalabrasClave.completaVectores(claves, frecExito, frecNoExito);
+        
+               
+        for (int frecuencia : frecExito){
+            System.out.println("\nFRECUENCIA EXITO : "+frecuencia);
+        }
+        for (int frecuencia : frecNoExito){
+            System.out.println("\nFRECUENCIA DE NO EXITO : "+frecuencia);
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        /*
         int cantElem = palabras.length;
         String[] claves = new String[cantElem+1];
         

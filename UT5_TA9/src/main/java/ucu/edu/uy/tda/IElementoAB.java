@@ -122,11 +122,16 @@ public interface IElementoAB<T> {
      * @return
      */
     public long calcularCosto(int[] frecExito, int[] frecNoExito, int[] indiceFE, int[] indiceFNE, int nivel);
+    public int getCosto();
+    public void setCosto(int costo);
+    public int getFrecExito();
     
     public void listaDatosNivelMasProfundo(int nivel, Lista claves);
     
     public int Lti(int nivel);
     
     public void cuentaFrec(Comparable unArgumento);
+    
+    public void completaVectores(Comparable[] claves, int[] frecExito, int[] frecNoExito, int[] indiceFNE, int[] indiceFE);
 
 }
