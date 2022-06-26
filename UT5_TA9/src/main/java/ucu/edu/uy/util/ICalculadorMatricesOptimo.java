@@ -12,7 +12,7 @@ public interface ICalculadorMatricesOptimo
      * @param claves
      * @param elArbolBB
      */
-    void armarArbolBinario(int i, int j, String[] claves, IArbolBB elArbolBB);
+    void armarArbolBinario(int i, int j, Comparable[] claves, IArbolBB elArbolBB);
 
     /**
      *

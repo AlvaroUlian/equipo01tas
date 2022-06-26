@@ -128,11 +128,11 @@ public class CalculadorMatricesOptimo implements ICalculadorMatricesOptimo{
     
     
     @Override
-    public void armarArbolBinario(int i, int j, String[] elementos, IArbolBB elArbolBB ) {
+    public void armarArbolBinario(int i, int j, Comparable[] elementos, IArbolBB elArbolBB ) {
         int unaraiz;
         if (i < j) {
             unaraiz = R[i][j];
-            elArbolBB.insertar(new TElementoAB (elementos[unaraiz],null));
+            elArbolBB.insertar(new TElementoAB (elementos[unaraiz-1],null));
             armarArbolBinario(i, unaraiz-1, elementos, elArbolBB);
             armarArbolBinario(unaraiz, j, elementos, elArbolBB);
         }

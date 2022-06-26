@@ -423,6 +423,7 @@ public class TElementoAB<T> implements IElementoAB<T>
     }
     @Override
     public void completaVectores(Comparable[] claves, int[] frecExito, int[] frecNoExito, int[] indiceFE, int[] indiceFNE){
+        claves[indiceFE[0]] = this.etiqueta;
         indiceFNE[0]++;
         indiceFE[0]++;
         //System.out.println("RECORRIENDO :"+this.getEtiqueta());

@@ -24,7 +24,7 @@ public class UT5_TA9{
     {
         //ARMADO DE ARBOL CON LAS PALABRAS CLAVES
         TArbolBB arbolPalabrasClave = new TArbolBB();        
-        String[] palabrasClave = ManejadorArchivosGenerico.leerArchivo("palabras2.txt");
+        String[] palabrasClave = ManejadorArchivosGenerico.leerArchivo("palabras.txt");
         for (String palabra : palabrasClave){
             //System.out.println(palabra.split(" ")[0]);
             IElementoAB elementoPalabraClave = new TElementoAB(palabra.split(" ")[0],null);
@@ -46,7 +46,7 @@ public class UT5_TA9{
                 }
             }
         }
-        IElementoAB elemento = arbolPalabrasClave.buscar("abstract");
+        //IElementoAB elemento = arbolPalabrasClave.buscar("abstract");
         //System.out.println("ETIQUETA : "+elemento.getEtiqueta().toString()+"PARAMETRO FREC_EX : "+elemento.getFrecExito());
         
         //50 ELEMENOTOS EN ESTE ARBOL, LOS ARRAYS SERAN DE TAMAÑO DEL ARBOL + 1
@@ -66,7 +66,12 @@ public class UT5_TA9{
             System.out.println("\nFRECUENCIA DE NO EXITO : "+frecuencia);
         }
         
-        
+        IArbolBB arbolOptimo = new TArbolBB();
+        int cantPalabrasClave = arbolPalabrasClave.tamanio();
+        CalculadorMatricesOptimo calMatOpt_1 = new CalculadorMatricesOptimo(cantPalabrasClave);
+        calMatOpt_1.encontrarOptimo(cantPalabrasClave, frecExito, frecNoExito);
+        calMatOpt_1.armarArbolBinario(0,cantPalabrasClave, claves, arbolOptimo);
+        System.out.println(arbolOptimo.buscar("while").getEtiqueta());
         
         
         
