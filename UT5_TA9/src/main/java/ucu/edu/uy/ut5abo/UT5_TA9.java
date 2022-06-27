@@ -1,3 +1,4 @@
+
 /*
  * NO LICENCE 
  * Author: Ing. Nicolás Navarro Gutérrez
@@ -30,8 +31,7 @@ public class UT5_TA9{
             IElementoAB elementoPalabraClave = new TElementoAB(palabra.split(" ")[0],null);
             arbolPalabrasClave.insertar(elementoPalabraClave);
         }
-        ILista<TElementoAB> listaElementosPalabrasClave = arbolPalabrasClave.inOrden();
-        //System.out.println(listaElementosPalabrasClave.imprimir("\n"));
+        System.out.println(arbolPalabrasClave.inOrden().imprimir("\n"));
         
         //MODIFICANDO FRECUENCIAS DE LAS PALABRAS CLAVE CON EL TXT DE CODIGO
         String[] codigo = ManejadorArchivosGenerico.leerArchivo("codigo.txt");
@@ -60,10 +60,10 @@ public class UT5_TA9{
         
                
         for (int frecuencia : frecExito){
-            System.out.println("\nFRECUENCIA EXITO : "+frecuencia);
+            //System.out.println("\nFRECUENCIA EXITO : "+frecuencia);
         }
         for (int frecuencia : frecNoExito){
-            System.out.println("\nFRECUENCIA DE NO EXITO : "+frecuencia);
+            //System.out.println("\nFRECUENCIA DE NO EXITO : "+frecuencia);
         }
         
         IArbolBB arbolOptimo = new TArbolBB();
@@ -71,7 +71,8 @@ public class UT5_TA9{
         CalculadorMatricesOptimo calMatOpt_1 = new CalculadorMatricesOptimo(cantPalabrasClave);
         calMatOpt_1.encontrarOptimo(cantPalabrasClave, frecExito, frecNoExito);
         calMatOpt_1.armarArbolBinario(0,cantPalabrasClave, claves, arbolOptimo);
-        System.out.println(arbolOptimo.buscar("while").getEtiqueta());
+        //System.out.println(arbolOptimo.buscar("while").getEtiqueta());
+        System.out.println(arbolOptimo.inOrden().imprimir("--\n"));
         
         
         
