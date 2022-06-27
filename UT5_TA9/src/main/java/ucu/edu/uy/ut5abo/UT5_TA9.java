@@ -50,7 +50,7 @@ public class UT5_TA9{
         //System.out.println("ETIQUETA : "+elemento.getEtiqueta().toString()+"PARAMETRO FREC_EX : "+elemento.getFrecExito());
         
         //50 ELEMENOTOS EN ESTE ARBOL, LOS ARRAYS SERAN DE TAMAÑO DEL ARBOL + 1
-        Comparable[] claves = new Comparable[arbolPalabrasClave.tamanio()]; 
+        Comparable[] claves = new Comparable[arbolPalabrasClave.tamanio()+1]; 
         int[] frecExito = new int[arbolPalabrasClave.tamanio()+1];
         frecExito[0] = -1;
         int[] frecNoExito = new int[arbolPalabrasClave.tamanio()+1];
@@ -71,8 +71,7 @@ public class UT5_TA9{
         CalculadorMatricesOptimo calMatOpt_1 = new CalculadorMatricesOptimo(cantPalabrasClave);
         calMatOpt_1.encontrarOptimo(cantPalabrasClave, frecExito, frecNoExito);
         calMatOpt_1.armarArbolBinario(0,cantPalabrasClave, claves, arbolOptimo);
-        //System.out.println(arbolOptimo.buscar("while").getEtiqueta());
-        System.out.println(arbolOptimo.inOrden().imprimir("--\n"));
+        System.out.println(arbolOptimo.inOrden().imprimir("\n"));
         
         
         

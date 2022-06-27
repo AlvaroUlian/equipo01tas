@@ -423,9 +423,9 @@ public class TElementoAB<T> implements IElementoAB<T>
     }
     @Override
     public void completaVectores(Comparable[] claves, int[] frecExito, int[] frecNoExito, int[] indiceFE, int[] indiceFNE){
-        claves[indiceFE[0]] = this.etiqueta;
         indiceFNE[0]++;
         indiceFE[0]++;
+        claves[indiceFNE[0]] = this.getEtiqueta();
         //System.out.println("RECORRIENDO :"+this.getEtiqueta());
         
         if (this.getHijoIzq() != null){
@@ -436,7 +436,6 @@ public class TElementoAB<T> implements IElementoAB<T>
             frecNoExito[indiceFNE[0]] += this.frecNoExIzq;
             //System.out.println("FINAL indiceFNE[0] "+indiceFNE[0]);
         }
-        
         frecExito[indiceFE[0]] = this.frecExito;
         
         //System.out.println("FINAL indiceFE[0] "+indiceFE[0]);

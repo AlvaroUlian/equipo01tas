@@ -132,7 +132,7 @@ public class CalculadorMatricesOptimo implements ICalculadorMatricesOptimo{
         int unaraiz;
         if (i < j) {
             unaraiz = R[i][j];
-            elArbolBB.insertar(new TElementoAB (elementos[unaraiz-1],null));
+            elArbolBB.insertar(new TElementoAB (elementos[unaraiz],null));
             armarArbolBinario(i, unaraiz-1, elementos, elArbolBB);
             armarArbolBinario(unaraiz, j, elementos, elArbolBB);
         }
