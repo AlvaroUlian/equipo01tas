@@ -1,5 +1,7 @@
 package ucu.edu.uy.tda;
 
+import static java.lang.Integer.max;
+
 public class TElementoAB<T> implements IElementoAB<T>
 {
 
@@ -451,15 +453,24 @@ public class TElementoAB<T> implements IElementoAB<T>
 
     @Override
     public int cumpleAVL(boolean[] vector) {
-        int alturaIzq = 0;
-        int alturaDer = 0;
-        if (this.getHijoIzq()!=null && vector[0]=true){
+        int alturaIzq = -1;
+        int alturaDer = -1;
+        if (this.getHijoIzq()!=null && vector[0]==true){
             alturaIzq = hijoIzq.cumpleAVL(vector);
+            if (alturaIzq>2){
+                return alturaIzq;
+            }
         }
-        if (this.getHijoDer()!=null && vector[0]=true){
+        if (this.getHijoDer()!=null && vector[0]==true){
             alturaDer = hijoDer.cumpleAVL(vector);
+            if (alturaDer>2){
+                return alturaDer;
+            }
         }
-        
-        return max(alturaIzq y alturaDer)+1
+        int difAltura = max(alturaIzq,alturaDer)+1;
+        if(difAltura>2){
+            vector[0]=false;
+        }
+        return difAltura;   
     }
 }

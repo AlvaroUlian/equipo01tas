@@ -17,7 +17,7 @@ import ucu.edu.uy.util.ManejadorArchivosGenerico;
  * @author facum
  */
 public class UT5_TA8 {
-        /*
+    public static void main(String[] args){    
      //ARMADO DE ARBOL CON LAS PALABRAS CLAVES
         TArbolBB arbolPalabrasClave = new TArbolBB();        
         String[] palabrasClave = ManejadorArchivosGenerico.leerArchivo("palabras.txt");
@@ -67,12 +67,18 @@ public class UT5_TA8 {
         calMatOpt_1.encontrarOptimo(cantPalabrasClave, frecExito, frecNoExito);
         calMatOpt_1.armarArbolBinario(0,cantPalabrasClave, claves, arbolOptimo);
         System.out.println(arbolOptimo.inOrden().imprimir("\n"));
-        arbolOptimo.calcularCosto(frecExito, frecNoExito);
+        
+        if (arbolOptimo.cumpleAVL() == true){
+            System.out.println("El arbol cumple avl");
+        }else{
+            System.out.println("El arbol no cumple avl");
+        }
+        //arbolOptimo.calcularCosto(frecExito, frecNoExito);
         
         
         
         
-        
+        /*
         
         int cantElem = palabras.length;
         String[] claves = new String[cantElem+1];
@@ -165,6 +171,7 @@ public class UT5_TA8 {
         System.out.println("-------------");
          */
     }
+}
 
 
 
