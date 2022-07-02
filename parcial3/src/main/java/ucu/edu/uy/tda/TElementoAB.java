@@ -372,21 +372,30 @@ public class TElementoAB<T> implements IElementoAB<T>
     public long obtenerCosto(Comparable clave)
     {
         long costo = 0;
+        System.out.println("\n CLAVE BUSCADA --> "+clave);
+        System.out.println("ETIQUETA ELEMENTO ACTUAL --> "+this.etiqueta);
+        
         if (clave.compareTo(this.etiqueta) == 0){
             System.out.println("\n SE ENCONTRO EL ELEMENTO CON IGUAL ETIQUETA A LA BUSCADA :) \n");
-            System.out.println("   COSTO DEL MISMO :) "+this.getCosto()+"\n");
-
             return this.getCosto();
-        }else{
-            if(clave.compareTo(etiqueta)<0){
-                if(this.getHijoIzq()!=null){
+            
+        }else{ //SI NO SE ENCONTRO SE SIGUE AVANZANDO..
+            System.out.println("SI NO SE ENCONTRO SE SIGUE AVANZANDO..");
+            
+            if(clave.compareTo(etiqueta)<0){ //SI ES MENOR Y THIS TIENE HIJO
+                
+                if(this.hijoIzq!=null){
+                    System.out.println("SE AVANZA POR EL ARBOL HACIA IZQUIERDA...."+clave);
                     costo += hijoIzq.obtenerCosto(clave);
-                }
+                }else{System.out.println("NO SE ENCONTRO EL ELEMENTO EN EL ABB OPTIMO!");}
+            }
+            else{
+                if(this.hijoDer!=null){ //SI NO ES MAYOR ES MENOR...
+                    System.out.println("SE AVANZA POR EL ARBOL HACIA DERECHA...."+clave);
+                    costo+=this.hijoDer.obtenerCosto(clave);
+                }else{System.out.println("NO SE ENCONTRO EL ELEMENTO EN EL ABB OPTIMO!");}
             }
         }
-        if (this.hijoDer!=null){
-            costo+=this.hijoDer.obtenerCosto(clave);
-        }
-        return costo;
+        return costo += this.getCosto(); //SE RETORNA SIEMPRE EL COSTO ACUMULADO
     }
 }

@@ -5,6 +5,7 @@
 package ucu.edu.uy.parcial;
 
 import ucu.edu.uy.tda.IArbolBB;
+import ucu.edu.uy.tda.IElementoAB;
 import ucu.edu.uy.tda.TArbolBB;
 import ucu.edu.uy.util.CalculadorMatricesOptimo;
 import ucu.edu.uy.util.ManejadorArchivosGenerico;
@@ -62,13 +63,35 @@ public class Main
         // COMPLETAR: Calcular los costos para cada TElemento del árbol
         
         String clave1 = "int";
+        IElementoAB elementoBuscado1 = arbolOptimo.buscar(clave1);
+        if (elementoBuscado1 != null){
+            System.out.println("Busco el elemento en el ABB OPTIMO para confirmar inserción "+elementoBuscado1.getEtiqueta());
+        }
+        
         String clave2 = "def";
+        IElementoAB elementoBuscado2 = arbolOptimo.buscar(clave2);
+        if (elementoBuscado2 != null){
+            System.out.println("Busco el elemento en el ABB OPTIMO para confirmar inserción "+elementoBuscado2.getEtiqueta());
+        }
+        
         String clave3 = "import";
+        arbolOptimo.buscar(clave3);
+        IElementoAB elementoBuscado3 = arbolOptimo.buscar(clave3);
+        if (elementoBuscado3 != null){
+            System.out.println("Busco el elemento en el ABB OPTIMO para confirmar inserción "+elementoBuscado3.getEtiqueta());
+        }
+       
         String clave4 = "private";
+        arbolOptimo.buscar(clave4);
+        IElementoAB elementoBuscado4 = arbolOptimo.buscar(clave4);
+        if (elementoBuscado4 != null){
+            System.out.println("Busco el elemento en el ABB OPTIMO para confirmar inserción "+elementoBuscado4.getEtiqueta());
+        }
+
         
         // COMPLETAR: Obtener el valor del costo para cada clave dada
         // COMPLETAR: Emitir por pantalla en el formato requerido los valores obtenidos
-
+        
         long costoClave1 = arbolOptimo.obtenerCosto(clave1);
         System.out.println(costoClave1);
         long costoClave2 = arbolOptimo.obtenerCosto(clave2);
