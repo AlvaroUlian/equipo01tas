@@ -346,7 +346,7 @@ public class TElementoAB<T> implements IElementoAB<T>
         }
         else
         {
-            costoIzq = frecNoExito[indiceFNE[0]] * (nivel + 1);
+            costoIzq = frecNoExito[indiceFNE[0]] * (nivel + 1); 
             indiceFNE[0]++;
         }
 
