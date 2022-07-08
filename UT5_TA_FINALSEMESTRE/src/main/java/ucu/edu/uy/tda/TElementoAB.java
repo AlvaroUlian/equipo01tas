@@ -393,18 +393,16 @@ public class TElementoAB<T> implements IElementoAB<T>
 
     @Override
     public boolean paresPalabra(String clave, Lista<T> soloPares) {
-        
-    
-        if (clave.compareTo(this.getEtiqueta().toString())==0){
+        if (clave.compareTo(this.getEtiqueta().toString())==0){ //LA CLAVE ES IGUAL
             //Se encontró PALABRA
             if (this.getDatos() != null){
                 Lista<Integer> listaAux = (Lista<Integer>) this.getDatos(); //LOS DATOS DE UN ELEMENTO
                 Nodo<Integer> nodoActual = listaAux.getPrimero();
                 while (nodoActual != null){
                     if (Integer.parseInt(nodoActual.getEtiqueta().toString())%2 == 0){
-                        soloPares.insertar(new Nodo<>(nodoActual.getEtiqueta(), nodoActual.getDato()));
-                        nodoActual = nodoActual.getSiguiente();
+                        soloPares.insertar(new Nodo<>(nodoActual.getEtiqueta(), (T)this.etiqueta));
                     }
+                    nodoActual = nodoActual.getSiguiente();
                 }
             }
             return true;
@@ -418,12 +416,12 @@ public class TElementoAB<T> implements IElementoAB<T>
                             Nodo<Integer> nodoActual = listaAux.getPrimero();
                             while (nodoActual != null){
                                 if (Integer.parseInt(nodoActual.getEtiqueta().toString())%2 == 0){
-                                    soloPares.insertar(new Nodo<>(nodoActual.getEtiqueta(), nodoActual.getDato()));
-                                    nodoActual = nodoActual.getSiguiente();
+                                    soloPares.insertar(new Nodo<>(nodoActual.getEtiqueta(), (T)this.etiqueta));
                                 }
-                            }    
-                        }
+                                nodoActual = nodoActual.getSiguiente();
+                            }
                         return true; 
+                        }
                     }
                 }
                 return false; //NO HAY MAS QUE RECORRER RETORNO FALSO Ó YA VIENE DE UN RETORNO EN FALSO.
@@ -437,13 +435,13 @@ public class TElementoAB<T> implements IElementoAB<T>
                             Nodo<Integer> nodoActual = listaAux.getPrimero();
                             while (nodoActual != null){
                                 if (Integer.parseInt(nodoActual.getEtiqueta().toString())%2 == 0){
-                                    soloPares.insertar(new Nodo<>(nodoActual.getEtiqueta(), nodoActual.getDato()));
-                                    nodoActual = nodoActual.getSiguiente();                            
+                                    soloPares.insertar(new Nodo<>(nodoActual.getEtiqueta(), (T)this.etiqueta));
                                 }
+                                nodoActual = nodoActual.getSiguiente();
                             }
                         }
-                    }
                     return true;
+                    }
                 }
                 return false; //NO HAY MAS QUE RECORRER RETORNO FALSO Ó YA VIENE DE UN RETORNO EN FALSO.
             }
